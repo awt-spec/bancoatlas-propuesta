@@ -181,25 +181,38 @@ const BenefitsAndInfra = () => (
                 {timeline.map((row, i) => (
                   <motion.tr
                     key={row.stage}
-                    initial={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.06, ease }}
-                    className="border-b border-white/10 last:border-0"
+                    transition={{ duration: 0.5, delay: i * 0.1, ease }}
+                    className="border-b border-white/10 last:border-0 group/row hover:bg-white/5 transition-colors duration-200"
                   >
-                    <td className="py-3 px-4 font-mono font-bold text-white">{row.stage}</td>
-                    <td className="py-3 px-4 text-white/90">{row.task}</td>
+                    <td className="py-4 px-4 font-mono font-bold text-white">
+                      <motion.span
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.1 + 0.2, ease }}
+                        className="inline-flex w-7 h-7 rounded-lg bg-white/15 items-center justify-center text-xs"
+                      >
+                        {row.stage}
+                      </motion.span>
+                    </td>
+                    <td className="py-4 px-4 text-white/90 font-medium">{row.task}</td>
                     {row.months.map((active, mi) => (
-                      <td key={mi} className="py-3 px-2 text-center">
+                      <td key={mi} className="py-4 px-2 text-center">
                         {active ? (
                           <motion.div
-                            initial={{ scaleX: 0 }}
-                            whileInView={{ scaleX: 1 }}
+                            initial={{ scaleX: 0, opacity: 0 }}
+                            whileInView={{ scaleX: 1, opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: i * 0.06 + mi * 0.04, ease }}
-                            className="w-6 h-2 rounded-full mx-auto origin-left bg-white"
+                            transition={{ duration: 0.5, delay: i * 0.1 + mi * 0.06, ease }}
+                            className="h-3 rounded-full mx-auto origin-left bg-white/90 group-hover/row:bg-white transition-colors duration-200"
+                            style={{ width: "28px" }}
                           />
-                        ) : null}
+                        ) : (
+                          <div className="h-3 w-[28px] rounded-full mx-auto bg-white/5" />
+                        )}
                       </td>
                     ))}
                   </motion.tr>
@@ -207,9 +220,15 @@ const BenefitsAndInfra = () => (
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-center mt-6 text-white/50">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            className="text-xs text-center mt-6 text-white/50"
+          >
             Implementación en 6 meses — Modelo ON-CLOUD con Microsoft Azure
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </section>
