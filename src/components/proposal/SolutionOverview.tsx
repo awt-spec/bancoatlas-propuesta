@@ -17,7 +17,7 @@ const SolutionOverview = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
-    <section className="py-24 md:py-32 bg-sysde-red text-white">
+    <section className="py-24 md:py-32 bg-background text-foreground">
       <div className="container px-6 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
