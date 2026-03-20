@@ -19,14 +19,14 @@
     --primary: 355 72% 40%;
     --primary-foreground: 0 0% 100%;
 
-    /* SYSDE Blue */
-    --secondary: 207 60% 55%;
+    /* Secondary = Red tones */
+    --secondary: 355 72% 50%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 15% 96%;
     --muted-foreground: 210 10% 44%;
 
-    --accent: 207 60% 55%;
+    --accent: 355 72% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -40,8 +40,6 @@
 
     --sysde-red: 355 72% 40%;
     --sysde-red-light: 355 72% 50%;
-    --sysde-blue: 207 60% 55%;
-    --sysde-blue-dark: 207 60% 40%;
     --sysde-dark: 210 20% 15%;
 
     --sidebar-background: 0 0% 98%;
@@ -63,11 +61,11 @@
     --popover-foreground: 0 0% 95%;
     --primary: 355 72% 50%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 207 60% 45%;
+    --secondary: 355 72% 50%;
     --secondary-foreground: 0 0% 100%;
     --muted: 210 20% 15%;
     --muted-foreground: 210 10% 60%;
-    --accent: 207 60% 45%;
+    --accent: 355 72% 50%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 95%;
@@ -76,8 +74,6 @@
     --ring: 355 72% 50%;
     --sysde-red: 355 72% 50%;
     --sysde-red-light: 355 72% 60%;
-    --sysde-blue: 207 60% 55%;
-    --sysde-blue-dark: 207 60% 40%;
     --sysde-dark: 210 20% 8%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -108,22 +104,13 @@
   .bg-sysde-red {
     background-color: hsl(var(--sysde-red));
   }
-  .bg-sysde-blue {
-    background-color: hsl(var(--sysde-blue));
-  }
   .bg-sysde-dark {
     background-color: hsl(var(--sysde-dark));
   }
   .text-sysde-red {
     color: hsl(var(--sysde-red));
   }
-  .text-sysde-blue {
-    color: hsl(var(--sysde-blue));
-  }
   .bg-gradient-sysde {
     background: linear-gradient(135deg, hsl(var(--sysde-red)), hsl(var(--sysde-red-light)));
-  }
-  .bg-gradient-sysde-blue {
-    background: linear-gradient(135deg, hsl(var(--sysde-blue-dark)), hsl(var(--sysde-blue)));
   }
 }

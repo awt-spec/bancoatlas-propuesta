@@ -22,7 +22,7 @@ const SolutionOverview = () => (
         transition={{ duration: 0.7, ease }}
         className="text-center mb-16"
       >
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-blue mb-3">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3">
           Descripción del Producto
         </p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-5" style={{ textWrap: "balance" }}>
@@ -44,8 +44,8 @@ const SolutionOverview = () => (
             whileHover={{ y: -5, transition: { duration: 0.25 } }}
             className="p-6 rounded-2xl border border-white/10 bg-white/[0.04] cursor-default group"
           >
-            <div className="w-10 h-10 rounded-xl bg-sysde-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <item.icon className="h-5 w-5 text-sysde-blue" />
+            <div className="w-10 h-10 rounded-xl bg-sysde-red/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <item.icon className="h-5 w-5 text-sysde-red" />
             </div>
             <h3 className="text-base font-semibold mb-1">{item.title}</h3>
             <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>

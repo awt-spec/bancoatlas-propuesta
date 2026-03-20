@@ -75,7 +75,7 @@ const ProposalChatbot = () => {
             whileTap={{ scale: 0.95 }}
             onClick={() => setOpen(true)}
             className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-white"
-            style={{ background: "linear-gradient(135deg, hsl(355 72% 40%), hsl(207 60% 45%))" }}
+            style={{ background: "linear-gradient(135deg, hsl(355 72% 40%), hsl(355 72% 50%))" }}
           >
             <MessageCircle className="w-6 h-6" />
           </motion.button>
@@ -94,7 +94,7 @@ const ProposalChatbot = () => {
             {/* Header */}
             <div
               className="flex items-center justify-between px-4 py-3 text-white"
-              style={{ background: "linear-gradient(135deg, hsl(355 72% 38%), hsl(207 60% 42%))" }}
+              style={{ background: "linear-gradient(135deg, hsl(355 72% 38%), hsl(355 72% 48%))" }}
             >
               <div className="flex items-center gap-2">
                 <Bot className="w-5 h-5" />
@@ -120,7 +120,7 @@ const ProposalChatbot = () => {
                   <div
                     className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
                       msg.role === "user"
-                        ? "bg-sysde-blue text-white rounded-br-md"
+                        ? "bg-sysde-red text-white rounded-br-md"
                         : "bg-muted text-foreground rounded-bl-md"
                     }`}
                   >
@@ -146,7 +146,7 @@ const ProposalChatbot = () => {
                     </ReactMarkdown>
                   </div>
                   {msg.role === "user" && (
-                    <div className="w-7 h-7 rounded-full bg-sysde-blue flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-sysde-red flex items-center justify-center shrink-0 mt-0.5">
                       <User className="w-4 h-4 text-white" />
                     </div>
                   )}
@@ -180,7 +180,7 @@ const ProposalChatbot = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Pregunta sobre la propuesta..."
-                  className="flex-1 bg-muted rounded-xl px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-sysde-blue/30"
+                  className="flex-1 bg-muted rounded-xl px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-sysde-red/30"
                 />
                 <button
                   type="submit"

@@ -9,7 +9,7 @@ const phases = [
     period: "Meses 1–18",
     price: "$9,999",
     highlight: true,
-    borderColor: "border-sysde-blue",
+    borderColor: "border-sysde-red",
     features: ["Implementación completa", "Todos los módulos activos", "Usuarios ilimitados", "Soporte incluido"],
   },
   {
@@ -80,11 +80,11 @@ const EconomicProposal = () => (
             transition={{ duration: 0.6, delay: i * 0.12, ease }}
             whileHover={{ y: -6, boxShadow: "0 24px 48px -12px rgba(0,0,0,0.12)", transition: { duration: 0.25 } }}
             className={`p-7 rounded-2xl border-2 ${p.borderColor} relative overflow-hidden cursor-default group ${
-              p.highlight ? "bg-sysde-blue/[0.04]" : "bg-card"
+              p.highlight ? "bg-sysde-red/[0.04]" : "bg-card"
             }`}
           >
             {p.highlight && (
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-sysde-blue" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-sysde" />
             )}
             <p className="text-xs font-bold uppercase tracking-widest text-sysde-red mb-1">{p.phase}</p>
             <p className="text-xs text-muted-foreground mb-5">{p.period}</p>
@@ -102,7 +102,7 @@ const EconomicProposal = () => (
                   transition={{ duration: 0.4, delay: i * 0.12 + fi * 0.06, ease }}
                   className="flex items-start gap-2 text-sm text-muted-foreground"
                 >
-                  <CheckCircle2 className="h-4 w-4 text-sysde-blue mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-4 w-4 text-sysde-red mt-0.5 flex-shrink-0" />
                   {f}
                 </motion.li>
               ))}
@@ -119,8 +119,8 @@ const EconomicProposal = () => (
         transition={{ duration: 0.7, ease }}
         className="mb-16"
       >
-        <div className="p-8 rounded-2xl border-2 border-sysde-blue/25 bg-sysde-blue/[0.03] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-sysde-blue" />
+        <div className="p-8 rounded-2xl border-2 border-sysde-red/25 bg-sysde-red/[0.03] relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-sysde" />
           <h4 className="font-bold text-foreground text-lg mb-5 text-center">Todo incluido en cada fase</h4>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {inclusions.map((item, i) => (
@@ -132,7 +132,7 @@ const EconomicProposal = () => (
                 transition={{ duration: 0.4, delay: i * 0.06, ease }}
                 className="flex items-start gap-2 text-sm text-muted-foreground"
               >
-                <CheckCircle2 className="h-4 w-4 text-sysde-blue mt-0.5 flex-shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-sysde-red mt-0.5 flex-shrink-0" />
                 {item}
               </motion.div>
             ))}
