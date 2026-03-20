@@ -32,7 +32,7 @@ const SolutionOverview = () => {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-5" style={{ textWrap: "balance" }}>
             ¿Qué es SYSDE SAF+?
           </h2>
-          <p className="text-base text-white/60 max-w-2xl mx-auto leading-relaxed" style={{ textWrap: "pretty" }}>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed" style={{ textWrap: "pretty" }}>
             La herramienta financiera de alta tecnología que automatiza e integra de forma eficiente los procesos y operaciones de los intermediarios financieros.
           </p>
         </motion.div>
