@@ -119,8 +119,8 @@ const EconomicProposal = () => (
         transition={{ duration: 0.7, ease }}
         className="mb-16"
       >
-        <div className="p-8 rounded-2xl border-2 border-sysde-blue/25 bg-sysde-blue/[0.03] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-sysde-blue" />
+        <div className="p-8 rounded-2xl border-2 border-sysde-red/25 bg-sysde-red/[0.03] relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-sysde" />
           <h4 className="font-bold text-foreground text-lg mb-5 text-center">Todo incluido en cada fase</h4>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {inclusions.map((item, i) => (
