@@ -150,7 +150,7 @@ const BenefitsAndInfra = () => {
             </div>
           </motion.div>
 
-          {/* Comparison — Visual cards layout */}
+          {/* Comparison — Interactive hover cards */}
           <motion.div
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -158,27 +158,61 @@ const BenefitsAndInfra = () => {
             transition={{ duration: 0.7, ease }}
           >
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3 text-center">Comparativa</p>
-            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-10 text-center tracking-tight">¿Por qué SYSDE SAF+?</h3>
-            <div className="space-y-3">
+            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-center tracking-tight">¿Por qué SYSDE SAF+?</h3>
+            <p className="text-sm text-muted-foreground text-center mb-10 max-w-md mx-auto">Pasa el cursor sobre cada fila para ver la diferencia</p>
+            
+            {/* Header */}
+            <div className="grid grid-cols-[1.2fr_1fr_1fr] items-center gap-0 mb-2 px-5">
+              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Concepto</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground text-center">Tradicional</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-sysde-red text-center">SYSDE SAF+</span>
+            </div>
+
+            <div className="space-y-2">
               {comparison.map((row, i) => (
                 <motion.div
                   key={row.concept}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05, ease }}
-                  whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                  className="grid grid-cols-[1fr_1fr_1fr] items-center gap-4 p-4 rounded-xl border border-border bg-card hover:border-sysde-red/20 transition-colors duration-200 cursor-default group"
+                  whileHover={{
+                    scale: 1.02,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="grid grid-cols-[1.2fr_1fr_1fr] items-center gap-0 rounded-xl border border-border bg-card overflow-hidden cursor-default group hover:shadow-lg hover:shadow-sysde-red/5 hover:border-sysde-red/25 transition-all duration-300"
                 >
-                  <span className="font-semibold text-foreground text-sm">{row.concept}</span>
-                  <span className="text-sm text-muted-foreground text-center flex items-center justify-center gap-1.5">
-                    <X className="h-3.5 w-3.5 text-muted-foreground/50 flex-shrink-0" />
-                    {row.trad}
-                  </span>
-                  <span className="text-sm font-bold text-sysde-red text-center flex items-center justify-center gap-1.5">
-                    <Check className="h-3.5 w-3.5 flex-shrink-0" />
-                    {row.sysde}
-                  </span>
+                  <div className="py-4 px-5 border-r border-border">
+                    <span className="font-semibold text-foreground text-sm group-hover:text-sysde-red transition-colors duration-300">{row.concept}</span>
+                  </div>
+                  <div className="py-4 px-4 text-center border-r border-border bg-muted/20 group-hover:bg-muted/40 transition-colors duration-300">
+                    <div className="flex items-center justify-center gap-2">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05 + 0.2, duration: 0.3, ease }}
+                        className="w-5 h-5 rounded-full bg-muted-foreground/10 flex items-center justify-center flex-shrink-0"
+                      >
+                        <X className="h-3 w-3 text-muted-foreground/60" />
+                      </motion.div>
+                      <span className="text-sm text-muted-foreground">{row.trad}</span>
+                    </div>
+                  </div>
+                  <div className="py-4 px-4 text-center group-hover:bg-sysde-red/[0.04] transition-colors duration-300">
+                    <div className="flex items-center justify-center gap-2">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05 + 0.3, duration: 0.3, ease }}
+                        className="w-5 h-5 rounded-full bg-sysde-red/15 flex items-center justify-center flex-shrink-0 group-hover:bg-sysde-red group-hover:text-white transition-all duration-300"
+                      >
+                        <Check className="h-3 w-3 text-sysde-red group-hover:text-white transition-colors duration-300" />
+                      </motion.div>
+                      <span className="text-sm font-bold text-sysde-red">{row.sysde}</span>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
