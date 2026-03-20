@@ -55,13 +55,13 @@ const ModulesSection = () => (
             className={`p-5 rounded-2xl border text-center cursor-default group ${
               mod.accent
                 ? "border-sysde-red/20 bg-sysde-red/[0.04]"
-                : "border-sysde-blue/20 bg-sysde-blue/[0.04]"
+                : "border-border bg-muted/30"
             }`}
           >
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 ${
-              mod.accent ? "bg-sysde-red/10" : "bg-sysde-blue/10"
+              mod.accent ? "bg-sysde-red/10" : "bg-muted"
             }`}>
-              <mod.icon className={`h-6 w-6 ${mod.accent ? "text-sysde-red" : "text-sysde-blue"}`} />
+              <mod.icon className={`h-6 w-6 ${mod.accent ? "text-sysde-red" : "text-foreground/60"}`} />
             </div>
             <h4 className="text-sm font-semibold text-foreground leading-tight">{mod.title}</h4>
           </motion.div>

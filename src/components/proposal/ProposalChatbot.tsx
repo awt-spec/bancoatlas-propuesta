@@ -180,7 +180,7 @@ const ProposalChatbot = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Pregunta sobre la propuesta..."
-                  className="flex-1 bg-muted rounded-xl px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-sysde-blue/30"
+                  className="flex-1 bg-muted rounded-xl px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-sysde-red/30"
                 />
                 <button
                   type="submit"
