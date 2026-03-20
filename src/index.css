@@ -104,22 +104,13 @@
   .bg-sysde-red {
     background-color: hsl(var(--sysde-red));
   }
-  .bg-sysde-blue {
-    background-color: hsl(var(--sysde-blue));
-  }
   .bg-sysde-dark {
     background-color: hsl(var(--sysde-dark));
   }
   .text-sysde-red {
     color: hsl(var(--sysde-red));
   }
-  .text-sysde-blue {
-    color: hsl(var(--sysde-blue));
-  }
   .bg-gradient-sysde {
     background: linear-gradient(135deg, hsl(var(--sysde-red)), hsl(var(--sysde-red-light)));
-  }
-  .bg-gradient-sysde-blue {
-    background: linear-gradient(135deg, hsl(var(--sysde-blue-dark)), hsl(var(--sysde-blue)));
   }
 }
