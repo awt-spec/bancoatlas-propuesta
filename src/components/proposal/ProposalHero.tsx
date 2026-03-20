@@ -1,44 +1,46 @@
 import { motion } from "framer-motion";
 import sysdeLogoSrc from "@/assets/sysde-logo.png";
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 const ProposalHero = () => (
   <section className="relative min-h-[85vh] flex items-center justify-center bg-gradient-sysde text-primary-foreground overflow-hidden">
     <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-background" style={{ clipPath: "polygon(100% 0%, 100% 100%, 0% 100%)" }} />
 
     <motion.div
       className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full border border-primary-foreground/5"
-      initial={{ scale: 0.8, opacity: 0 }}
+      initial={{ scale: 0.6, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
+      transition={{ duration: 1.8, ease }}
     />
     <motion.div
       className="absolute top-1/3 right-1/3 w-[300px] h-[300px] rounded-full border border-primary-foreground/5"
-      initial={{ scale: 0.5, opacity: 0 }}
+      initial={{ scale: 0.4, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+      transition={{ duration: 1.8, delay: 0.2, ease }}
     />
 
     <div className="container relative z-10 px-6 py-24 md:py-32">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.4 }}
         className="max-w-4xl mx-auto"
       >
         <motion.img
           src={sysdeLogoSrc}
           alt="SYSDE Logo"
           className="h-10 md:h-12 mb-12 brightness-0 invert"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          initial={{ opacity: 0, x: -20, filter: "blur(6px)" }}
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          transition={{ delay: 0.15, duration: 0.7, ease }}
         />
 
         <div className="overflow-hidden">
           <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+            initial={{ y: 100, opacity: 0, filter: "blur(8px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            transition={{ delay: 0.25, duration: 0.9, ease }}
             className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight leading-[0.95] mb-2"
           >
             PROPUESTA
@@ -46,9 +48,9 @@ const ProposalHero = () => (
         </div>
         <div className="overflow-hidden">
           <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.45, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+            initial={{ y: 100, opacity: 0, filter: "blur(8px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            transition={{ delay: 0.4, duration: 0.9, ease }}
             className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight leading-[0.95] mb-4"
           >
             ECONÓMICA
@@ -56,9 +58,9 @@ const ProposalHero = () => (
         </div>
         <div className="overflow-hidden">
           <motion.p
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+            initial={{ y: 30, opacity: 0, filter: "blur(4px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            transition={{ delay: 0.55, duration: 0.7, ease }}
             className="text-lg md:text-xl opacity-80 mb-10"
           >
             Solución Integral SYSDE SAF+
@@ -66,9 +68,9 @@ const ProposalHero = () => (
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
+          initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ delay: 0.65, duration: 0.6, ease }}
           className="flex flex-col sm:flex-row gap-8 mb-16"
         >
           <div>
@@ -83,9 +85,9 @@ const ProposalHero = () => (
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
+          initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ delay: 0.8, duration: 0.6, ease }}
           className="space-y-2 text-sm"
         >
           <p className="opacity-70">Detalles de contacto</p>

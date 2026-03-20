@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
 import { Users, Building, Wrench, FileText, HeadphonesIcon, Cloud, Server, Database, HardDrive, Wifi } from "lucide-react";
 
-const fade = {
-  initial: { opacity: 0, y: 20 } as const,
-  whileInView: { opacity: 1, y: 0 } as const,
-  viewport: { once: true, margin: "-60px" } as const,
-  transition: { duration: 0.5 },
-};
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const BenefitsAndInfra = () => (
   <section className="py-20 md:py-28 bg-muted/50">
     <div className="container px-6 max-w-5xl">
-      {/* Unlimited Service Model */}
-      <motion.div {...fade} className="text-center mb-14">
+      <motion.div
+        initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease }}
+        className="text-center mb-14"
+      >
         <h2 className="text-sm font-semibold uppercase tracking-wider text-sysde-red mb-2">Modelo de Servicio</h2>
-        <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+        <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4" style={{ textWrap: "balance" }}>
           Servicio Ilimitado SYSDE
         </h3>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -33,13 +33,14 @@ const BenefitsAndInfra = () => (
         ].map((b, i) => (
           <motion.div
             key={b.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="flex gap-4 p-6 rounded-2xl border border-border bg-card"
+            initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: i * 0.08, ease }}
+            whileHover={{ y: -4, boxShadow: "0 16px 32px -8px rgba(0,0,0,0.1)", transition: { duration: 0.25 } }}
+            className="flex gap-4 p-6 rounded-2xl border border-border bg-card cursor-default group"
           >
-            <div className="w-10 h-10 rounded-xl bg-sysde-blue/10 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-sysde-blue/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
               <b.icon className="h-5 w-5 text-sysde-blue" />
             </div>
             <div>
@@ -50,8 +51,13 @@ const BenefitsAndInfra = () => (
         ))}
       </div>
 
-      {/* Comparison Table */}
-      <motion.div {...fade} className="mb-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease }}
+        className="mb-20"
+      >
         <h3 className="text-2xl font-bold text-foreground mb-6 text-center">¿Por qué SYSDE SAF+?</h3>
         <div className="overflow-x-auto rounded-2xl border border-border bg-card">
           <table className="w-full min-w-[600px] text-sm">
@@ -74,19 +80,30 @@ const BenefitsAndInfra = () => (
                 ["Infraestructura", "Inversión propia", "Azure incluido"],
                 ["Implementación", "6-18 meses", "6 meses"],
               ].map(([concept, traditional, sysde], i) => (
-                <tr key={concept} className={`${i % 2 === 0 ? "bg-card" : "bg-muted/30"} border-b border-border last:border-0`}>
+                <motion.tr
+                  key={concept}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.04, ease }}
+                  className={`${i % 2 === 0 ? "bg-card" : "bg-muted/30"} border-b border-border last:border-0`}
+                >
                   <td className="py-3 px-5 font-medium text-foreground">{concept}</td>
                   <td className="py-3 px-5 text-center text-muted-foreground">{traditional}</td>
                   <td className="py-3 px-5 text-center font-semibold text-sysde-blue">{sysde}</td>
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
           </table>
         </div>
       </motion.div>
 
-      {/* Infrastructure */}
-      <motion.div {...fade}>
+      <motion.div
+        initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease }}
+      >
         <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Infraestructura ON-CLOUD</h3>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           {[
@@ -94,22 +111,35 @@ const BenefitsAndInfra = () => (
             { icon: Database, title: "Servidor de Base de Datos", specs: ["SQL SaaS — 4 núcleos", "16 GB RAM", "500 GB almacenamiento", "MS SQL 2019"] },
             { icon: HardDrive, title: "Servidor Web / Servicios", specs: ["CPU: 4 cores", "16 GB RAM", "128 GB SSD", "Linux"] },
             { icon: Wifi, title: "Servicios de Red", specs: ["Respaldo diario", "Retención 15 días", "Sitio de Contingencia", "Microsoft Azure"] },
-          ].map((s) => (
-            <div key={s.title} className="p-5 rounded-xl bg-card border border-border">
-              <s.icon className="h-5 w-5 text-sysde-red mb-3" />
+          ].map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease }}
+              whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
+              className="p-5 rounded-xl bg-card border border-border cursor-default group"
+            >
+              <s.icon className="h-5 w-5 text-sysde-red mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h4 className="font-semibold text-foreground text-sm mb-3">{s.title}</h4>
               <ul className="space-y-1">
                 {s.specs.map((sp) => (
                   <li key={sp} className="text-xs text-muted-foreground">{sp}</li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.div>
 
-      {/* Timeline */}
-      <motion.div {...fade} className="mt-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease }}
+        className="mt-20"
+      >
         <h3 className="text-2xl font-bold text-foreground mb-2 text-center">Cronograma de implementación</h3>
         <p className="text-sm text-muted-foreground text-center mb-6">Metodología SYSDE "Agile - Answers"</p>
         <div className="overflow-x-auto rounded-xl bg-gradient-to-br from-muted-foreground/30 to-sysde-red p-[2px]">
@@ -133,17 +163,30 @@ const BenefitsAndInfra = () => (
                   { stage: "4", task: "Pruebas Integrales", months: [false, false, false, false, true, false] },
                   { stage: "5", task: "Puesta en Producción", months: [false, false, false, false, false, true] },
                 ].map((row, i) => (
-                  <tr key={row.stage} className="border-b border-muted-foreground/10">
+                  <motion.tr
+                    key={row.stage}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.06, ease }}
+                    className="border-b border-muted-foreground/10"
+                  >
                     <td className="py-3 px-4 font-mono font-bold text-sysde-red">{row.stage}</td>
                     <td className="py-3 px-4 text-foreground">{row.task}</td>
                     {row.months.map((active, mi) => (
                       <td key={mi} className="py-3 px-2 text-center">
                         {active && (
-                          <div className={`w-6 h-2 rounded-full mx-auto ${i % 2 === 0 ? 'bg-sysde-red' : 'bg-muted-foreground/50'}`} />
+                          <motion.div
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: i * 0.06 + mi * 0.04, ease }}
+                            className={`w-6 h-2 rounded-full mx-auto origin-left ${i % 2 === 0 ? 'bg-sysde-red' : 'bg-muted-foreground/50'}`}
+                          />
                         )}
                       </td>
                     ))}
-                  </tr>
+                  </motion.tr>
                 ))}
               </tbody>
             </table>

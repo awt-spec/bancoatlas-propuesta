@@ -1,13 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Users, Landmark, Banknote, CreditCard, BookOpen, Building, PiggyBank, Box, FileText } from "lucide-react";
 
-const fade = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 } as const,
-  whileInView: { opacity: 1, y: 0 } as const,
-  viewport: { once: true, margin: "-60px" } as const,
-  transition: { duration: 0.5, delay },
-});
-
 const modules = [
   { icon: Shield, title: "Seguridad", color: "text-sysde-red", bg: "bg-sysde-red/10" },
   { icon: Users, title: "Clientes 360°", color: "text-sysde-blue", bg: "bg-sysde-blue/10" },
@@ -24,9 +17,15 @@ const modules = [
 const ModulesSection = () => (
   <section className="py-20 md:py-28 bg-background">
     <div className="container px-6 max-w-5xl">
-      <motion.div {...fade()} className="text-center mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="text-center mb-16"
+      >
         <h2 className="text-sm font-semibold uppercase tracking-wider text-sysde-red mb-2">Alcance</h2>
-        <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+        <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4" style={{ textWrap: "balance" }}>
           Módulos incluidos
         </h3>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -38,13 +37,15 @@ const ModulesSection = () => (
         {modules.map((mod, i) => (
           <motion.div
             key={mod.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.4, delay: i * 0.06 }}
-            className="p-5 rounded-2xl border border-border bg-card text-center hover:shadow-lg transition-shadow"
+            initial={{ opacity: 0, scale: 0.9, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -4, scale: 1.03, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.97 }}
+            className="p-5 rounded-2xl border border-border bg-card text-center cursor-default group"
           >
-            <div className={`w-12 h-12 rounded-xl ${mod.bg} flex items-center justify-center mx-auto mb-3`}>
+            <div className={`w-12 h-12 rounded-xl ${mod.bg} flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
               <mod.icon className={`h-6 w-6 ${mod.color}`} />
             </div>
             <h4 className="text-sm font-semibold text-foreground leading-tight">{mod.title}</h4>
@@ -52,8 +53,13 @@ const ModulesSection = () => (
         ))}
       </div>
 
-      {/* Regulatory Reports */}
-      <motion.div {...fade()} className="mb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-12"
+      >
         <div className="p-8 rounded-2xl border-2 border-sysde-red/20 bg-card">
           <h3 className="text-xl font-bold text-foreground mb-2 text-center">Reportes Regulatorios — Paraguay</h3>
           <p className="text-sm text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
@@ -66,11 +72,19 @@ const ModulesSection = () => (
               { title: "SEPRELAD", desc: "Reportes de prevención de lavado de activos: operaciones sospechosas, transacciones en efectivo, KYC." },
               { title: "Superintendencia de Bancos (SIB)", desc: "Central de riesgos, información contable, gobierno corporativo, auditoría interna." },
               { title: "FATF / GAFI", desc: "Cumplimiento con estándares internacionales de prevención de financiamiento del terrorismo." },
-            ].map((item) => (
-              <div key={item.title} className="p-5 rounded-xl bg-muted/50 border border-border">
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -16 : 16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                className="p-5 rounded-xl bg-muted/50 border border-border cursor-default"
+              >
                 <h4 className="font-semibold text-foreground text-sm mb-2">{item.title}</h4>
                 <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
           <p className="text-xs text-sysde-red font-medium text-center mt-6">
