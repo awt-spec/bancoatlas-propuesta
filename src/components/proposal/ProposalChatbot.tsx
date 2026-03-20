@@ -146,7 +146,7 @@ const ProposalChatbot = () => {
                     </ReactMarkdown>
                   </div>
                   {msg.role === "user" && (
-                    <div className="w-7 h-7 rounded-full bg-sysde-blue flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-sysde-red flex items-center justify-center shrink-0 mt-0.5">
                       <User className="w-4 h-4 text-white" />
                     </div>
                   )}
