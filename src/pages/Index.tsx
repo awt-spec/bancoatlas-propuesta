@@ -14,7 +14,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <ProposalNav />
       <ProposalHero />
-      <div id="presentacion">
       <div id="solucion">
         <SolutionOverview />
       </div>
