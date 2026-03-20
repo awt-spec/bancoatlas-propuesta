@@ -9,7 +9,7 @@ const phases = [
     period: "Meses 1–18",
     price: "$9,999",
     highlight: true,
-    borderColor: "border-sysde-blue",
+    borderColor: "border-sysde-red",
     features: ["Implementación completa", "Todos los módulos activos", "Usuarios ilimitados", "Soporte incluido"],
   },
   {
