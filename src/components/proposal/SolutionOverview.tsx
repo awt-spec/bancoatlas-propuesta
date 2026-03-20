@@ -77,9 +77,9 @@ const SolutionOverview = () => {
                         initial={{ opacity: 0, x: -8 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: di * 0.06, duration: 0.3 }}
-                        className="text-xs text-white/70 flex items-center gap-2"
+                        className="text-xs text-muted-foreground flex items-center gap-2"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/50 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-sysde-red/50 flex-shrink-0" />
                         {d}
                       </motion.li>
                     ))}
