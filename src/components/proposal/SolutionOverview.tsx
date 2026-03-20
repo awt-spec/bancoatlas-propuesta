@@ -47,11 +47,11 @@ const SolutionOverview = () => {
               transition={{ duration: 0.6, delay: i * 0.08, ease }}
               whileHover={{ y: -5, transition: { duration: 0.25 } }}
               onClick={() => setExpanded(expanded === i ? null : i)}
-              className="p-6 rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur-sm cursor-pointer group select-none"
+              className="p-6 rounded-2xl border border-border bg-card cursor-pointer group select-none"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="h-5 w-5 text-white" />
+                <div className="w-10 h-10 rounded-xl bg-sysde-red/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="h-5 w-5 text-sysde-red" />
                 </div>
                 <motion.div
                   animate={{ rotate: expanded === i ? 90 : 0 }}
