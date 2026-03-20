@@ -10,7 +10,7 @@ const ProposalChatbot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "¡Hola! 👋 Soy el asistente de esta propuesta. Pregúntame lo que quieras sobre la solución de SYSDE para Pentágono.",
+      content: "¡Hola! 👋 Soy el asistente de esta propuesta. Pregúntame lo que quieras sobre la solución de SYSDE para Banco Atlas.",
     },
   ]);
   const [input, setInput] = useState("");

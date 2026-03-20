@@ -1,81 +1,76 @@
 import { motion } from "framer-motion";
+import { Building2, TrendingUp, Smartphone } from "lucide-react";
 
 const ExecutiveLetter = () => {
-  const paragraphs = [
-    "Esperando que se encuentren bien, les escribo para dar seguimiento a nuestra reciente conversación, así como a la presentación de nuestra solución integral. Con base en los puntos discutidos y en las necesidades específicas que ustedes han mencionado, hemos preparado la presente propuesta de negocios para la implementación de la solución SYSDE SAF PLUS en Factoraje Pentágono.",
-    "En esta propuesta, hemos considerado la implementación bajo el modelo ON-CLOUD (en la nube) de nuestra plataforma, el cual permite un despliegue ágil y flexible, alineado con las mejores prácticas de la industria. Este enfoque asegura una rápida adopción y minimiza las necesidades de infraestructura interna, facilitando así la gestión y operación diaria de sus procesos financieros y administrativos.",
-    "Adjunto encontrará el documento detallado con todos los elementos necesarios para la evaluación de la propuesta, incluyendo los alcances del proyecto, la metodología de implementación, los plazos estimados y los costos asociados.",
-    "Quedamos a su disposición para cualquier consulta o aclaración que requiera, así como para coordinar una reunión donde podamos profundizar en los detalles de esta propuesta.",
-    "Agradeciendo de antemano su tiempo y esperando poder colaborar próximamente, me despido.",
+  const pillars = [
+    {
+      icon: Building2,
+      title: "Solidez Institucional",
+      desc: "US$1,400M en activos, 27 sucursales, 500+ colaboradores y calificación AA-py Estable.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Crecimiento Activo",
+      desc: "Cartera de créditos con crecimiento del 15.36% interanual. Líder en préstamos AFD para vivienda.",
+    },
+    {
+      icon: Smartphone,
+      title: "Transformación Digital",
+      desc: "66% de transacciones ya son digitales. Estrategia centrada en digitalización y PYMES.",
+    },
   ];
 
   return (
     <section className="py-20 md:py-28 bg-background">
-      <div className="container px-6 max-w-3xl">
+      <div className="container px-6 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
+          className="text-center mb-16"
         >
           <h2 className="text-sm font-semibold uppercase tracking-wider text-sysde-red mb-2">
-            Presentación Ejecutiva
+            Entendemos su momento
           </h2>
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Factoraje Pentágono</h3>
-          <p className="text-muted-foreground mb-8">
-            Guillermo Miguel Saca · Ricardo Saca · Gerardo Saca
+          <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            Una propuesta diseñada para Banco Atlas
+          </h3>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Diseñada para acompañar a Banco Atlas en cada etapa de su evolución, con un modelo flexible
+            que se adapta al momento actual y permite escalar gradualmente.
           </p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-muted-foreground leading-relaxed mb-4"
-          >
-            Estimado equipo de Factoraje Pentágono:
-          </motion.p>
-
-          <div className="space-y-4">
-            {paragraphs.map((p, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: 0.1 + i * 0.08, duration: 0.5 }}
-                className="text-muted-foreground leading-relaxed"
-              >
-                {p.includes("SYSDE SAF PLUS") ? (
-                  <>
-                    {p.split("SYSDE SAF PLUS")[0]}
-                    <strong className="text-foreground">SYSDE SAF PLUS</strong>
-                    {p.split("SYSDE SAF PLUS")[1]}
-                  </>
-                ) : p.includes("ON-CLOUD") ? (
-                  <>
-                    {p.split("ON-CLOUD (en la nube)")[0]}
-                    <strong className="text-foreground">ON-CLOUD (en la nube)</strong>
-                    {p.split("ON-CLOUD (en la nube)")[1]}
-                  </>
-                ) : (
-                  p
-                )}
-              </motion.p>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="mt-8 pt-6 border-t border-border"
-          >
-            <p className="text-foreground font-semibold">Eduardo Wheelock</p>
-            <p className="text-sm text-muted-foreground">Presidente, Sysde Inc.</p>
-          </motion.div>
         </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {pillars.map((p, i) => (
+            <motion.div
+              key={p.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.12 }}
+              className="p-7 rounded-2xl border border-border bg-card hover:shadow-lg transition-shadow"
+            >
+              <div className="w-10 h-10 rounded-xl bg-sysde-blue/10 flex items-center justify-center mb-4">
+                <p.icon className="h-5 w-5 text-sysde-blue" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">{p.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-center text-muted-foreground text-sm italic max-w-2xl mx-auto"
+        >
+          Nuestra propuesta está diseñada con un modelo flexible que se adapta al momento actual de Banco Atlas,
+          permitiendo iniciar con una inversión optimizada y escalar gradualmente.
+        </motion.p>
       </div>
     </section>
   );

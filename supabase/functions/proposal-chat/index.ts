@@ -5,119 +5,101 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-// Knowledge base del documento de propuesta
 const documentContent = `
-# Propuesta Comercial SYSDE para Pentágono - Leasing, Préstamos y Factoraje
+# Propuesta Económica SYSDE para Banco Atlas — Paraguay
 
 ## Información Principal:
-- **Cliente**: Pentágono
-- **Solución**: Sistema integral para Leasing, Arrendamiento, Préstamos y Factoraje
-- **Empresa**: SYSDE - Especialistas en soluciones tecnológicas para el sector financiero
+- **Cliente**: Banco Atlas — Paraguay
+- **Solución**: Sistema integral SYSDE SAF+ (Core Bancario)
+- **Empresa**: SYSDE — Especialistas en soluciones tecnológicas para el sector financiero
 
-## Módulos del Sistema:
+## Contexto de Banco Atlas:
+- US$1,400M en activos, 27 sucursales, 500+ colaboradores
+- Calificación AA-py Estable
+- Cartera de créditos con crecimiento del 15.36% interanual
+- Líder en préstamos AFD para vivienda
+- 66% de transacciones ya son digitales
+- Estrategia centrada en digitalización y PYMES
 
-### 1. Módulo de Originación
-- Gestión de solicitudes de crédito
-- Análisis crediticio automatizado
-- Flujo de aprobación configurable
-- Integración con burós de crédito
-- Scoring automático
+## ¿Qué es SYSDE SAF+?
+La herramienta financiera de alta tecnología que automatiza e integra de forma eficiente los procesos y operaciones de los intermediarios financieros.
+Características: Flexible y Adaptable, Canales Digitales Integrados, APIs y Conectividad, Tecnología de Última Generación, Gestión de Datos Centralizada, Orientado al Cliente.
 
-### 2. Módulo de Cartera
-- Administración de contratos activos
-- Gestión de amortizaciones
-- Seguimiento de pagos
-- Control de vencimientos
-- Reportes de cartera
+## 10 Módulos Incluidos:
+1. Seguridad
+2. Clientes 360°
+3. Préstamos
+4. Cajas
+5. Cuentas de Efectivo
+6. Contabilidad
+7. Bancos / Tesorería
+8. Depósitos a Plazo
+9. Activos Fijos
+10. Reportes Regulatorios
 
-### 3. Módulo de Cobranza
-- Seguimiento de morosidad
-- Gestión de cobro preventivo y correctivo
-- Estrategias de cobranza
-- Reportes de recuperación
-- Integración con despachos
+## Modelo de Servicio Ilimitado:
+- Usuarios Ilimitados: sin restricción, crezca sin costos adicionales por licencia
+- Agencias Ilimitadas: las 27 agencias actuales y las futuras están cubiertas
+- Cambios y Mejoras: ajustes funcionales y nuevos productos sin costo extra
+- Reportes Regulatorios: actualizaciones BCP, SEPRELAD incluidas
+- Soporte y Capacitación: correctivo, evolutivo y capacitación permanente
+- Infraestructura Cloud: Microsoft Azure, respaldos diarios, sitio de contingencia
 
-### 4. Módulo de Contabilidad
-- Integración contable automática
-- Generación de pólizas
-- Conciliaciones bancarias
-- Estados financieros
-- Cumplimiento IFRS
+## Modelo de Inversión Escalonado:
+| Fase | Período | Precio Mensual USD |
+|------|---------|-------------------|
+| Fase 1: Arranque | Meses 1-18 | $9,999 |
+| Fase 2: Crecimiento | Meses 19-36 | $14,999 |
+| Fase 3: Consolidación | Mes 37+ | $18,999 |
 
-### 5. Módulo de Tesorería
-- Control de flujos de efectivo
-- Administración de dispersiones
-- Gestión de fondeos
-- Conciliación bancaria
-- Reportes de liquidez
+Todos los precios en USD. No incluyen IVA. Contrato mínimo de 5 años. Facturación local en Paraguay.
 
-### 6. Módulo de Reportes
-- Dashboards ejecutivos en tiempo real
-- Reportes regulatorios (CNBV/CONDUSEF)
-- Análisis de portafolio
-- Indicadores KPI
-- Exportación a múltiples formatos
+## Comparación vs Modelo Tradicional:
+- Licenciamiento: Suscripción SaaS (vs Compra + Mantenimiento)
+- Usuarios: ILIMITADOS (vs Pago por usuario)
+- Agencias: ILIMITADAS (vs Pago por agencia)
+- Cambios regulatorios: INCLUIDOS (vs Cobro adicional)
+- Mejoras funcionales: INCLUIDAS (vs Cobro por hora)
+- Soporte: INCLUIDO (vs Contrato separado)
+- Capacitación: INCLUIDA (vs Cobro adicional)
+- Infraestructura: Azure incluido (vs Inversión propia)
+- Implementación: 6 meses (vs 6-18 meses)
 
-## Precios y Costos (Renta Mensual ON-CLOUD):
-Modelo SaaS basado en número de contratos activos:
-| Contratos | Monto Mensual USD |
-|-----------|-------------------|
-| 0 - 300   | $3,999.00         |
-| 301 - 400 | $4,399.00         |
-| 401 - 500 | $4,699.00         |
-| 501 - 600 | $4,999.00         |
-| 601 - 700 | $5,399.00         |
-| 701 - 800 | $5,699.00         |
-| 801 - 1000| $5,999.00         |
-| +1001     | Por determinar    |
+## Reportes Regulatorios Paraguay:
+- Banco Central del Paraguay (BCP): solvencia, liquidez, calce de monedas, estados financieros
+- SEPRELAD: prevención lavado de activos, operaciones sospechosas, KYC
+- Superintendencia de Bancos (SIB): central de riesgos, gobierno corporativo, auditoría
+- FATF / GAFI: estándares internacionales prevención financiamiento terrorismo
+- Cualquier nuevo reporte o modificación regulatoria se implementa sin costo adicional
 
-## Servicio Ilimitado SYSDE (incluido en la renta):
-- Licencia SYSDE SAF+ (todos los módulos)
-- Licencias de aplicación ilimitadas
-- Capacitación continua del equipo
-- Asistencia correctiva permanente
-- Mantenimiento y actualizaciones
-- Soporte técnico incluido
+## Cronograma de Implementación (6 meses):
+- Mes 1-2: Configuración Nube y Entendimiento del Negocio
+- Mes 2-4: Parametrización Base y Ajustes
+- Mes 4-5: Capacitación Funcional
+- Mes 5: Pruebas Integrales
+- Mes 6: Puesta en Producción
+- Metodología SYSDE "Agile - Answers"
 
-## Método de Pago:
-- Pago mensual por adelantado, el primer día hábil de cada mes
-- El pago inicial se requiere al momento de la firma del contrato
+## Infraestructura ON-CLOUD:
+- Servidor de Aplicaciones: 4 cores, 16GB RAM, 128GB SSD, Windows Server 2019
+- Servidor de Base de Datos: SQL SaaS 4 núcleos, 16GB RAM, 500GB, MS SQL 2019
+- Servidor Web/Servicios: 4 cores, 16GB RAM, 128GB SSD, Linux
+- Servicios de Red: Respaldo diario, retención 15 días, sitio de contingencia, Microsoft Azure
 
-## Timeline de Implementación:
-- **Fase 1** (Semanas 1-4): Configuración base e infraestructura
-- **Fase 2** (Semanas 5-10): Módulos core (Originación, Cartera, Cobranza)
-- **Fase 3** (Semanas 11-14): Integración (Contabilidad, Tesorería, Reportes)
-- **Fase 4** (Semanas 15-16): Go-Live (Pruebas UAT, capacitación, arranque)
-- **Tiempo total**: 3 a 4 meses
+## Términos y Condiciones:
+- Precios en USD, no incluyen IVA, facturación local en Paraguay
+- Contrato mínimo de 5 años
+- Incluye servidor de contingencia
+- Modificaciones funcionales sin costo adicional
+- Soporte y capacitación incluidos
+- Reportes regulatorios incluidos
+- Usuarios y agencias ilimitados
+- Información confidencial y propiedad de SYSDE
 
-## Beneficios Principales:
-- ✅ **Automatización**: Reduce tiempos operativos hasta un 60%
-- ✅ **Cumplimiento regulatorio**: Reportes CNBV/CONDUSEF integrados
-- ✅ **Escalabilidad**: Arquitectura cloud que crece con la operación
-- ✅ **Visibilidad**: Dashboards en tiempo real del portafolio
-- ✅ **Seguridad**: Encriptación, auditoría y control de accesos
-- ✅ **Integración**: APIs abiertas para conectar sistemas existentes
-
-## Infraestructura Propuesta:
-- **Cloud hosting**: Alta disponibilidad (99.9% uptime)
-- **Servidor**: 4 cores, 16 GB RAM, almacenamiento SSD
-- **Seguridad**: Certificados SSL, firewall, backups automáticos
-- **Base de datos**: PostgreSQL con réplicas de lectura
-- **CI/CD**: Despliegues automatizados con zero-downtime
-
-## Soporte y Mantenimiento:
-- Soporte técnico en horario laboral (L-V 9:00-18:00)
-- Sistema de tickets con SLA definidos
-- Actualizaciones de seguridad y funcionales
-- Base de conocimiento y documentación
-- Capacitación inicial y sesiones de refuerzo
-
-## Acerca de SYSDE:
-SYSDE es una empresa especializada en soluciones tecnológicas para el sector financiero, con amplia experiencia en:
-- Instituciones de leasing y arrendamiento
-- Empresas de factoraje financiero
-- Sofomes y entidades de crédito
-- Consultores especializados en cumplimiento regulatorio
+## Contacto:
+- Eduardo Wheelock, Presidente, Sysde Inc.
+- Teléfono: +506 8657 0390
+- Email: info@sysde.com
 `;
 
 serve(async (req) => {
@@ -133,21 +115,18 @@ serve(async (req) => {
       throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    const systemPrompt = `Eres un asistente especializado en la propuesta comercial de SYSDE para Pentágono. Tu trabajo es responder preguntas sobre esta propuesta de manera clara, profesional y útil.
+    const systemPrompt = `Eres un asistente especializado en la propuesta económica de SYSDE para Banco Atlas Paraguay. Tu trabajo es responder preguntas sobre esta propuesta de manera clara, profesional y útil.
 
 INFORMACIÓN DEL DOCUMENTO:
 ${documentContent}
 
 INSTRUCCIONES:
-1. Responde SOLO sobre la información contenida en la propuesta de SYSDE para Pentágono
+1. Responde SOLO sobre la información contenida en la propuesta de SYSDE para Banco Atlas
 2. Si la pregunta no está relacionada con el documento, redirige educadamente hacia los temas de la propuesta
 3. Sé claro, conciso y profesional en tus respuestas
 4. Usa emojis moderadamente para hacer las respuestas más amigables
 5. Si no tienes información específica sobre algo, sugiere contactar al equipo de SYSDE
-6. Formatea las respuestas en markdown para mejor legibilidad
-
-EJEMPLO DE RESPUESTA:
-Si preguntan sobre precios: "💰 **Inversión propuesta:**\n- Implementación: $XX,XXX USD\n- Renta mensual: $X,XXX USD\n\n*Los montos exactos se definirán en la propuesta formal.*"`;
+6. Formatea las respuestas en markdown para mejor legibilidad`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
@@ -169,37 +148,22 @@ Si preguntan sobre precios: "💰 **Inversión propuesta:**\n- Implementación: 
     if (!response.ok) {
       if (response.status === 429) {
         return new Response(
-          JSON.stringify({ 
-            error: "Demasiadas consultas. Por favor intenta de nuevo en un momento." 
-          }), 
-          {
-            status: 429,
-            headers: { ...corsHeaders, "Content-Type": "application/json" },
-          }
+          JSON.stringify({ error: "Demasiadas consultas. Por favor intenta de nuevo en un momento." }), 
+          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
       if (response.status === 402) {
         return new Response(
-          JSON.stringify({ 
-            error: "Servicio de IA temporalmente no disponible. Por favor contacta al soporte." 
-          }), 
-          {
-            status: 402,
-            headers: { ...corsHeaders, "Content-Type": "application/json" },
-          }
+          JSON.stringify({ error: "Servicio de IA temporalmente no disponible." }), 
+          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
       
       const errorText = await response.text();
       console.error("AI gateway error:", response.status, errorText);
       return new Response(
-        JSON.stringify({ 
-          error: "Error del servicio de IA. Por favor intenta de nuevo." 
-        }), 
-        {
-          status: 500,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        }
+        JSON.stringify({ error: "Error del servicio de IA. Por favor intenta de nuevo." }), 
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
@@ -209,22 +173,14 @@ Si preguntan sobre precios: "💰 **Inversión propuesta:**\n- Implementación: 
 
     return new Response(
       JSON.stringify({ response: aiResponse }),
-      {
-        status: 200,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      }
+      { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
 
   } catch (error) {
     console.error("Chat error:", error);
     return new Response(
-      JSON.stringify({ 
-        error: error instanceof Error ? error.message : "Error desconocido" 
-      }), 
-      {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      }
+      JSON.stringify({ error: error instanceof Error ? error.message : "Error desconocido" }), 
+      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
 });
