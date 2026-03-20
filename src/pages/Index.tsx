@@ -20,14 +20,14 @@ const Index = () => {
       <div id="modulos">
         <ModulesSection />
       </div>
+      <div id="vision">
+        <VisionAndTimeline />
+      </div>
       <div id="beneficios">
         <BenefitsAndInfra />
       </div>
       <div id="propuesta">
         <EconomicProposal />
-      </div>
-      <div id="vision">
-        <VisionAndTimeline />
       </div>
       <ProposalFooter />
       <ProposalChatbot />
