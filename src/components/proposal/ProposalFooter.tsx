@@ -3,7 +3,7 @@ import { Mail, Phone } from "lucide-react";
 import sysdeLogoSrc from "@/assets/sysde-logo.png";
 
 const ProposalFooter = () => (
-  <footer className="py-16" style={{ background: "linear-gradient(145deg, hsl(210 20% 10%), hsl(355 72% 28%))" }}>
+  <footer className="py-16" style={{ background: "hsl(0 0% 10%)" }}>
     <div className="container px-6 max-w-5xl">
       <motion.div
         initial={{ opacity: 0 }}
@@ -12,7 +12,7 @@ const ProposalFooter = () => (
         className="text-center mb-10"
       >
         <h3 className="text-2xl font-bold text-white mb-2">Gracias por su confianza</h3>
-        <p className="text-sm text-white/50">Estamos listos para ser su socio tecnológico estratégico</p>
+        <p className="text-sm text-white/50">SYSDE & Inventiva — Su socio tecnológico estratégico</p>
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}

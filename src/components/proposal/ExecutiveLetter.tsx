@@ -40,11 +40,11 @@ const ExecutiveLetter = () => (
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3">
           Entendemos su momento
         </p>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-5" style={{ textWrap: "balance" }}>
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-5" style={{ textWrap: "balance" as const }}>
           Una propuesta diseñada para{" "}
           <span className="text-sysde-red">Banco Atlas</span>
         </h2>
-        <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed" style={{ textWrap: "pretty" }}>
+        <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed" style={{ textWrap: "pretty" as const }}>
           Un modelo flexible que se adapta al momento actual del banco y permite escalar gradualmente conforme crece la operación.
         </p>
       </motion.div>
@@ -57,11 +57,11 @@ const ExecutiveLetter = () => (
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: i * 0.1, ease }}
-            whileHover={{ y: -5, boxShadow: "0 20px 40px -12px hsla(207, 60%, 55%, 0.15)", transition: { duration: 0.25 } }}
+            whileHover={{ y: -5, boxShadow: "0 20px 40px -12px hsla(0, 0%, 0%, 0.1)", transition: { duration: 0.25 } }}
             className="p-7 rounded-2xl border border-border bg-card cursor-default group"
           >
-            <div className="w-10 h-10 rounded-xl bg-sysde-blue/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <p.icon className="h-5 w-5 text-sysde-blue" />
+            <div className="w-10 h-10 rounded-xl bg-sysde-red/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+              <p.icon className="h-5 w-5 text-sysde-red" />
             </div>
             <p className="text-3xl font-black text-foreground tracking-tight">{p.metric}</p>
             <p className="text-xs text-muted-foreground mb-3">{p.metricLabel}</p>

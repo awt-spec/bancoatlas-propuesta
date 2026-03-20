@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 import sysdeLogoSrc from "@/assets/sysde-logo.png";
 
 const sections = [
-  { label: "Presentación", href: "#presentacion" },
-  { label: "Solución", href: "#solucion" },
+  { label: "Plataforma", href: "#presentacion" },
   { label: "Módulos", href: "#modulos" },
-  { label: "Beneficios", href: "#beneficios" },
-  { label: "Propuesta", href: "#propuesta" },
+  { label: "Infraestructura", href: "#beneficios" },
   { label: "Visión", href: "#vision" },
+  { label: "Inversión", href: "#propuesta" },
 ];
 
 const ProposalNav = () => {
@@ -43,72 +42,48 @@ const ProposalNav = () => {
   };
 
   return (
-    <>
-      <motion.nav
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="container px-6 h-14 flex items-center justify-between">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
-            <img
-              src={sysdeLogoSrc}
-              alt="SYSDE"
-              className={`h-7 transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
-            />
-          </button>
-          <div className="hidden md:flex items-center gap-1">
-            {sections.map((s) => {
-              const isActive = activeSection === s.href;
-              return (
-                <button
-                  key={s.href}
-                  onClick={() => scrollTo(s.href)}
-                  className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-all duration-200 ${
-                    scrolled
-                      ? isActive
-                        ? "text-sysde-red bg-sysde-red/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                      : isActive
-                        ? "text-white bg-white/15"
-                        : "text-white/60 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  {s.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </motion.nav>
-
-      <aside className="hidden xl:flex fixed right-6 top-1/2 -translate-y-1/2 z-40">
-        <nav aria-label="Tabla de contenido" className="flex flex-col gap-2">
-          {sections.map((section) => {
-            const isActive = activeSection === section.href;
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container px-6 h-14 flex items-center justify-between">
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
+          <img
+            src={sysdeLogoSrc}
+            alt="SYSDE"
+            className={`h-7 transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
+          />
+        </button>
+        <div className="hidden md:flex items-center gap-1">
+          {sections.map((s) => {
+            const isActive = activeSection === s.href;
             return (
               <button
-                key={section.href}
-                onClick={() => scrollTo(section.href)}
-                className={`group flex items-center justify-end gap-2 transition-all ${
-                  isActive ? "text-sysde-red" : "text-muted-foreground hover:text-foreground"
+                key={s.href}
+                onClick={() => scrollTo(s.href)}
+                className={`text-sm font-semibold px-4 py-1.5 rounded-lg transition-all duration-200 ${
+                  scrolled
+                    ? isActive
+                      ? "text-sysde-red bg-sysde-red/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    : isActive
+                      ? "text-white bg-white/15"
+                      : "text-white/70 hover:text-white hover:bg-white/10"
                 }`}
               >
-                <span className={`text-[11px] tracking-wide transition-opacity ${isActive ? "opacity-100 font-medium" : "opacity-60 group-hover:opacity-100"}`}>
-                  {section.label}
-                </span>
-                <span className={`h-px transition-all ${isActive ? "w-8 bg-sysde-red" : "w-5 bg-border group-hover:bg-foreground"}`} />
+                {s.label}
               </button>
             );
           })}
-        </nav>
-      </aside>
-    </>
+        </div>
+      </div>
+    </motion.nav>
   );
 };
 
