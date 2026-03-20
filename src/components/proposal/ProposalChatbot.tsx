@@ -5,6 +5,8 @@ import ReactMarkdown from "react-markdown";
 
 type Message = { role: "user" | "assistant"; content: string };
 
+const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/proposal-chat`;
+
 const ProposalChatbot = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -24,13 +26,14 @@ const ProposalChatbot = () => {
   const send = async () => {
     const q = input.trim();
     if (!q || isTyping) return;
-    
+
     setInput("");
-    setMessages((prev) => [...prev, { role: "user", content: q }]);
+    const userMsg: Message = { role: "user", content: q };
+    setMessages((prev) => [...prev, userMsg]);
     setIsTyping(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/proposal-chat`, {
+      const resp = await fetch(CHAT_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,29 +42,21 @@ const ProposalChatbot = () => {
         body: JSON.stringify({ question: q }),
       });
 
-      if (!response.ok) {
-        if (response.status === 429) {
-          throw new Error("Demasiadas consultas. Intenta de nuevo en un momento.");
-        }
-        if (response.status === 402) {
-          throw new Error("Servicio temporalmente no disponible.");
-        }
+      if (!resp.ok) {
+        if (resp.status === 429) throw new Error("Demasiadas consultas. Intenta de nuevo en un momento.");
+        if (resp.status === 402) throw new Error("Servicio temporalmente no disponible.");
         throw new Error("Error al procesar tu pregunta. Intenta de nuevo.");
       }
 
-      const data = await response.json();
+      const data = await resp.json();
       const aiResponse = data.response || data.error || "No pude procesar tu pregunta.";
-      
       setMessages((prev) => [...prev, { role: "assistant", content: aiResponse }]);
     } catch (error) {
       console.error("Chat error:", error);
-      const errorMessage = error instanceof Error ? error.message : "Error de conexión. Intenta de nuevo.";
+      const errorMessage = error instanceof Error ? error.message : "Error de conexión.";
       setMessages((prev) => [
         ...prev,
-        { 
-          role: "assistant", 
-          content: `❌ **Error**: ${errorMessage}\n\nPuedes intentar reformular tu pregunta o contactar al equipo de SYSDE para más información.`
-        }
+        { role: "assistant", content: `⚠️ ${errorMessage}\n\nContacta al equipo de SYSDE para más información.` },
       ]);
     } finally {
       setIsTyping(false);
@@ -70,7 +65,6 @@ const ProposalChatbot = () => {
 
   return (
     <>
-      {/* Floating button */}
       <AnimatePresence>
         {!open && (
           <motion.button
@@ -78,15 +72,16 @@ const ProposalChatbot = () => {
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
             whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-sysde text-primary-foreground shadow-lg flex items-center justify-center"
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-white"
+            style={{ background: "linear-gradient(135deg, hsl(355 72% 40%), hsl(207 60% 45%))" }}
           >
             <MessageCircle className="w-6 h-6" />
           </motion.button>
         )}
       </AnimatePresence>
 
-      {/* Chat window */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -97,12 +92,15 @@ const ProposalChatbot = () => {
             className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-4rem)] rounded-2xl border border-border bg-background shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-gradient-sysde text-primary-foreground">
+            <div
+              className="flex items-center justify-between px-4 py-3 text-white"
+              style={{ background: "linear-gradient(135deg, hsl(355 72% 38%), hsl(207 60% 42%))" }}
+            >
               <div className="flex items-center gap-2">
                 <Bot className="w-5 h-5" />
                 <div>
                   <p className="text-sm font-semibold leading-tight">Asistente IA</p>
-                  <p className="text-[10px] opacity-80">Pregunta sobre el documento</p>
+                  <p className="text-[10px] opacity-70">Propuesta SYSDE · Banco Atlas</p>
                 </div>
               </div>
               <button onClick={() => setOpen(false)} className="hover:bg-white/20 rounded-full p-1 transition-colors">
@@ -115,22 +113,22 @@ const ProposalChatbot = () => {
               {messages.map((msg, i) => (
                 <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   {msg.role === "assistant" && (
-                    <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Bot className="w-4 h-4 text-primary" />
+                    <div className="w-7 h-7 rounded-full bg-sysde-red/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Bot className="w-4 h-4 text-sysde-red" />
                     </div>
                   )}
                   <div
-                    className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm ${
+                    className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
                       msg.role === "user"
-                        ? "bg-primary text-primary-foreground rounded-br-md"
+                        ? "bg-sysde-blue text-white rounded-br-md"
                         : "bg-muted text-foreground rounded-bl-md"
                     }`}
                   >
                     <ReactMarkdown
                       components={{
-                        p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
-                        ul: ({ children }) => <ul className="list-disc pl-4 mb-1">{children}</ul>,
-                        ol: ({ children }) => <ol className="list-decimal pl-4 mb-1">{children}</ol>,
+                        p: ({ children }) => <p className="mb-1.5 last:mb-0">{children}</p>,
+                        ul: ({ children }) => <ul className="list-disc pl-4 mb-1.5">{children}</ul>,
+                        ol: ({ children }) => <ol className="list-decimal pl-4 mb-1.5">{children}</ol>,
                         li: ({ children }) => <li className="mb-0.5">{children}</li>,
                         strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
                         table: ({ children }) => (
@@ -148,21 +146,21 @@ const ProposalChatbot = () => {
                     </ReactMarkdown>
                   </div>
                   {msg.role === "user" && (
-                    <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
-                      <User className="w-4 h-4 text-primary-foreground" />
+                    <div className="w-7 h-7 rounded-full bg-sysde-blue flex items-center justify-center shrink-0 mt-0.5">
+                      <User className="w-4 h-4 text-white" />
                     </div>
                   )}
                 </div>
               ))}
               {isTyping && (
                 <div className="flex gap-2 items-center">
-                  <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Bot className="w-4 h-4 text-primary" />
+                  <div className="w-7 h-7 rounded-full bg-sysde-red/10 flex items-center justify-center shrink-0">
+                    <Bot className="w-4 h-4 text-sysde-red" />
                   </div>
                   <div className="bg-muted rounded-2xl rounded-bl-md px-4 py-3 flex gap-1">
-                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce [animation-delay:0ms]" />
-                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce [animation-delay:150ms]" />
-                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce [animation-delay:300ms]" />
+                    <span className="w-2 h-2 bg-sysde-red/40 rounded-full animate-bounce [animation-delay:0ms]" />
+                    <span className="w-2 h-2 bg-sysde-red/40 rounded-full animate-bounce [animation-delay:150ms]" />
+                    <span className="w-2 h-2 bg-sysde-red/40 rounded-full animate-bounce [animation-delay:300ms]" />
                   </div>
                 </div>
               )}
@@ -182,12 +180,12 @@ const ProposalChatbot = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Pregunta sobre la propuesta..."
-                  className="flex-1 bg-muted rounded-xl px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30"
+                  className="flex-1 bg-muted rounded-xl px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-sysde-blue/30"
                 />
                 <button
                   type="submit"
                   disabled={!input.trim() || isTyping}
-                  className="w-9 h-9 rounded-xl bg-primary text-primary-foreground flex items-center justify-center disabled:opacity-40 hover:bg-primary/90 transition-colors"
+                  className="w-9 h-9 rounded-xl bg-sysde-red text-white flex items-center justify-center disabled:opacity-40 hover:opacity-90 transition-opacity active:scale-95"
                 >
                   <Send className="w-4 h-4" />
                 </button>

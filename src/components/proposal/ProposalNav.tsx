@@ -27,23 +27,14 @@ const ProposalNav = () => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible[0]) {
-          setActiveSection(`#${visible[0].target.id}`);
-        }
+        if (visible[0]) setActiveSection(`#${visible[0].target.id}`);
       },
-      {
-        root: null,
-        rootMargin: "-30% 0px -50% 0px",
-        threshold: [0.2, 0.4, 0.6, 0.8],
-      },
+      { root: null, rootMargin: "-30% 0px -50% 0px", threshold: [0.2, 0.4, 0.6, 0.8] },
     );
-
     sections.forEach(({ href }) => {
-      const element = document.querySelector(href);
-      if (element) observer.observe(element);
+      const el = document.querySelector(href);
+      if (el) observer.observe(el);
     });
-
     return () => observer.disconnect();
   }, []);
 
@@ -59,7 +50,7 @@ const ProposalNav = () => {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
+            ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
             : "bg-transparent"
         }`}
       >
@@ -71,20 +62,27 @@ const ProposalNav = () => {
               className={`h-7 transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
             />
           </button>
-          <div className="hidden md:flex items-center gap-5">
-            {sections.map((s) => (
-              <button
-                key={s.href}
-                onClick={() => scrollTo(s.href)}
-                className={`text-xs font-medium transition-colors duration-200 ${
-                  scrolled
-                    ? "text-muted-foreground hover:text-foreground"
-                    : "text-primary-foreground/70 hover:text-primary-foreground"
-                }`}
-              >
-                {s.label}
-              </button>
-            ))}
+          <div className="hidden md:flex items-center gap-1">
+            {sections.map((s) => {
+              const isActive = activeSection === s.href;
+              return (
+                <button
+                  key={s.href}
+                  onClick={() => scrollTo(s.href)}
+                  className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-all duration-200 ${
+                    scrolled
+                      ? isActive
+                        ? "text-sysde-red bg-sysde-red/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      : isActive
+                        ? "text-white bg-white/15"
+                        : "text-white/60 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  {s.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </motion.nav>
@@ -93,27 +91,18 @@ const ProposalNav = () => {
         <nav aria-label="Tabla de contenido" className="flex flex-col gap-2">
           {sections.map((section) => {
             const isActive = activeSection === section.href;
-
             return (
               <button
                 key={section.href}
                 onClick={() => scrollTo(section.href)}
                 className={`group flex items-center justify-end gap-2 transition-all ${
-                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  isActive ? "text-sysde-red" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <span
-                  className={`text-[11px] tracking-wide transition-opacity ${
-                    isActive ? "opacity-100" : "opacity-60 group-hover:opacity-100"
-                  }`}
-                >
+                <span className={`text-[11px] tracking-wide transition-opacity ${isActive ? "opacity-100 font-medium" : "opacity-60 group-hover:opacity-100"}`}>
                   {section.label}
                 </span>
-                <span
-                  className={`h-px transition-all ${
-                    isActive ? "w-8 bg-foreground" : "w-5 bg-border group-hover:bg-foreground"
-                  }`}
-                />
+                <span className={`h-px transition-all ${isActive ? "w-8 bg-sysde-red" : "w-5 bg-border group-hover:bg-foreground"}`} />
               </button>
             );
           })}

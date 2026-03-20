@@ -1,17 +1,58 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, AlertCircle, FileCheck } from "lucide-react";
 
-const phases = [
-  { phase: "FASE 1: ARRANQUE", period: "Meses 1 - 18", price: "USD $9,999", color: "border-sysde-blue", bg: "bg-sysde-blue/5", features: ["Implementación completa", "Todos los módulos", "Usuarios ilimitados", "Soporte incluido"] },
-  { phase: "FASE 2: CRECIMIENTO", period: "Meses 19 - 36", price: "USD $14,999", color: "border-sysde-red", bg: "bg-sysde-red/5", features: ["Estabilización operativa", "Evolución funcional", "Reportes regulatorios BCP", "Canales digitales"] },
-  { phase: "FASE 3: CONSOLIDACIÓN", period: "Mes 37 en adelante", price: "USD $18,999", color: "border-foreground/20", bg: "bg-muted/30", features: ["Plataforma madura", "Mejora continua", "Nuevos módulos disponibles", "Escalamiento pleno"] },
-];
-
 const ease = [0.16, 1, 0.3, 1] as const;
 
+const phases = [
+  {
+    phase: "Fase 1 — Arranque",
+    period: "Meses 1–18",
+    price: "$9,999",
+    highlight: true,
+    borderColor: "border-sysde-blue",
+    features: ["Implementación completa", "Todos los módulos activos", "Usuarios ilimitados", "Soporte incluido"],
+  },
+  {
+    phase: "Fase 2 — Crecimiento",
+    period: "Meses 19–36",
+    price: "$14,999",
+    highlight: false,
+    borderColor: "border-sysde-red",
+    features: ["Estabilización operativa", "Evolución funcional", "Reportes regulatorios BCP", "Canales digitales"],
+  },
+  {
+    phase: "Fase 3 — Consolidación",
+    period: "Mes 37 en adelante",
+    price: "$18,999",
+    highlight: false,
+    borderColor: "border-border",
+    features: ["Plataforma madura", "Mejora continua", "Nuevos módulos disponibles", "Escalamiento pleno"],
+  },
+];
+
+const inclusions = [
+  "10 módulos core bancario completos",
+  "Usuarios y agencias ilimitados",
+  "Infraestructura Azure + contingencia",
+  "Soporte, capacitación y mejoras evolutivas",
+  "Reportes regulatorios BCP / SEPRELAD",
+  "Implementación en 6 meses",
+];
+
+const terms = [
+  "Precios en USD. No incluyen IVA. Facturación local en Paraguay.",
+  "Contrato mínimo de cinco (5) años bajo modelo ON-CLOUD.",
+  "Incluye servidor de contingencia para disponibilidad y continuidad.",
+  "Modificaciones funcionales sin costo adicional, bajo plan de mejoras de mutuo acuerdo.",
+  "Soporte operativo, mantenimiento evolutivo y capacitación progresiva incluidos.",
+  "Actualizaciones de reportes regulatorios sin costo adicional.",
+  "Usuarios ilimitados, agencias ilimitadas y ajustes regulatorios ilimitados.",
+];
+
 const EconomicProposal = () => (
-  <section className="py-20 md:py-28 bg-background">
+  <section className="py-24 md:py-32 bg-background">
     <div className="container px-6 max-w-5xl">
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -19,15 +60,16 @@ const EconomicProposal = () => (
         transition={{ duration: 0.7, ease }}
         className="text-center mb-16"
       >
-        <h2 className="text-sm font-semibold uppercase tracking-wider text-sysde-red mb-2">Inversión</h2>
-        <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4" style={{ textWrap: "balance" }}>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3">Inversión</p>
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-5" style={{ textWrap: "balance" }}>
           Modelo de Inversión Escalonado
-        </h3>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto" style={{ textWrap: "pretty" }}>
+        </h2>
+        <p className="text-base text-muted-foreground max-w-2xl mx-auto" style={{ textWrap: "pretty" }}>
           Diseñado para crecer con Banco Atlas. Modelo SaaS con todo incluido y sin sorpresas.
         </p>
       </motion.div>
 
+      {/* Pricing Cards */}
       <div className="grid md:grid-cols-3 gap-6 mb-16">
         {phases.map((p, i) => (
           <motion.div
@@ -37,13 +79,20 @@ const EconomicProposal = () => (
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: i * 0.12, ease }}
             whileHover={{ y: -6, boxShadow: "0 24px 48px -12px rgba(0,0,0,0.12)", transition: { duration: 0.25 } }}
-            className={`p-7 rounded-2xl border-2 ${p.color} ${p.bg} relative overflow-hidden cursor-default group`}
+            className={`p-7 rounded-2xl border-2 ${p.borderColor} relative overflow-hidden cursor-default group ${
+              p.highlight ? "bg-sysde-blue/[0.04]" : "bg-card"
+            }`}
           >
-            <p className="text-xs font-semibold uppercase tracking-wider text-sysde-red mb-1">{p.phase}</p>
-            <p className="text-xs text-muted-foreground mb-4">{p.period}</p>
-            <p className="text-3xl font-black text-foreground mb-1">{p.price}</p>
+            {p.highlight && (
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-sysde-blue" />
+            )}
+            <p className="text-xs font-bold uppercase tracking-widest text-sysde-red mb-1">{p.phase}</p>
+            <p className="text-xs text-muted-foreground mb-5">{p.period}</p>
+            <p className="text-4xl font-black text-foreground tracking-tight">
+              USD {p.price}
+            </p>
             <p className="text-xs text-muted-foreground mb-6">/mes</p>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {p.features.map((f, fi) => (
                 <motion.li
                   key={f}
@@ -62,25 +111,19 @@ const EconomicProposal = () => (
         ))}
       </div>
 
+      {/* Inclusions */}
       <motion.div
         initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.7, ease }}
-        className="mb-12"
+        className="mb-16"
       >
-        <div className="p-8 rounded-2xl border-2 border-sysde-blue/20 bg-card relative overflow-hidden">
+        <div className="p-8 rounded-2xl border-2 border-sysde-blue/25 bg-sysde-blue/[0.03] relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-sysde-blue" />
-          <h4 className="font-bold text-foreground text-xl mb-4 text-center">Todo incluido en cada fase</h4>
+          <h4 className="font-bold text-foreground text-lg mb-5 text-center">Todo incluido en cada fase</h4>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              "10 módulos core bancario completos",
-              "Usuarios y agencias ilimitados",
-              "Infraestructura Azure + contingencia",
-              "Soporte, capacitación y mejoras evolutivas",
-              "Reportes regulatorios BCP / SEPRELAD",
-              "Implementación en 6 meses",
-            ].map((item, i) => (
+            {inclusions.map((item, i) => (
               <motion.div
                 key={item}
                 initial={{ opacity: 0, x: -8 }}
@@ -97,6 +140,7 @@ const EconomicProposal = () => (
         </div>
       </motion.div>
 
+      {/* Terms */}
       <motion.div
         initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -104,20 +148,12 @@ const EconomicProposal = () => (
         transition={{ duration: 0.7, delay: 0.1, ease }}
         className="mb-12"
       >
-        <h4 className="font-bold text-foreground text-xl mb-4 flex items-center gap-2">
+        <h4 className="font-bold text-foreground text-lg mb-5 flex items-center gap-2">
           <FileCheck className="h-5 w-5 text-sysde-red" />
           Términos y Condiciones
         </h4>
         <div className="space-y-3">
-          {[
-            "Los precios están expresados en USD. No incluyen IVA. Facturación local en Paraguay.",
-            "El modelo de suscripción ON-CLOUD requiere un contrato mínimo de cinco (5) años.",
-            "Incluye instalación del Core en servidor de contingencia para disponibilidad y continuidad operativa.",
-            "Modificaciones funcionales se desarrollarán sin costo adicional bajo plan de mejoras de mutuo acuerdo.",
-            "Soporte operativo, mantenimiento evolutivo, soporte correctivo y capacitación progresiva incluidos.",
-            "SYSDE realizará sin costo adicional cualquier actualización de reportes regulatorios requeridos.",
-            "Usuarios ilimitados, agencias ilimitadas y ajustes regulatorios ilimitados durante toda la vigencia.",
-          ].map((item, i) => (
+          {terms.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -12 }}
@@ -135,6 +171,7 @@ const EconomicProposal = () => (
         </div>
       </motion.div>
 
+      {/* Confidentiality */}
       <motion.div
         initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
