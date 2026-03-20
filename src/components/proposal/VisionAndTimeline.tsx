@@ -22,7 +22,7 @@ const cards = [
 ];
 
 const VisionAndTimeline = () => (
-  <section className="py-24 md:py-32 bg-foreground text-white overflow-hidden" style={{ background: "hsl(0 0% 12%)" }}>
+  <section className="py-24 md:py-32 bg-sysde-red text-white overflow-hidden">
     <div className="container px-6 max-w-5xl">
       <motion.div
         initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
