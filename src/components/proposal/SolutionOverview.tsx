@@ -22,7 +22,7 @@ const SolutionOverview = () => (
         transition={{ duration: 0.7, ease }}
         className="text-center mb-16"
       >
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-blue mb-3">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3">
           Descripción del Producto
         </p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-5" style={{ textWrap: "balance" }}>
