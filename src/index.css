@@ -19,14 +19,14 @@
     --primary: 355 72% 40%;
     --primary-foreground: 0 0% 100%;
 
-    /* SYSDE Blue */
-    --secondary: 207 60% 55%;
+    /* Secondary = Red tones */
+    --secondary: 355 72% 50%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 15% 96%;
     --muted-foreground: 210 10% 44%;
 
-    --accent: 207 60% 55%;
+    --accent: 355 72% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
