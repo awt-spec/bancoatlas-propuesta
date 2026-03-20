@@ -14,13 +14,13 @@ const benefits = [
 ];
 
 const comparison = [
-  { concept: "Licenciamiento", trad: "Compra + Mantenimiento", sysde: "Suscripción SaaS", tradBad: true },
+  { concept: "Licenciamiento", trad: "Compra + Mantenimiento", sysde: "INCLUIDO", tradBad: true },
   { concept: "Usuarios", trad: "Pago por usuario", sysde: "ILIMITADOS", tradBad: true },
   { concept: "Agencias", trad: "Pago por agencia", sysde: "ILIMITADAS", tradBad: true },
-  { concept: "Cambios regulatorios", trad: "Cobro adicional", sysde: "INCLUIDOS", tradBad: true },
-  { concept: "Mejoras funcionales", trad: "Cobro por hora", sysde: "INCLUIDAS", tradBad: true },
-  { concept: "Soporte", trad: "Contrato separado", sysde: "INCLUIDO", tradBad: true },
-  { concept: "Capacitación", trad: "Cobro adicional", sysde: "INCLUIDA", tradBad: true },
+  { concept: "Cambios regulatorios", trad: "Cobro adicional", sysde: "ILIMITADOS", tradBad: true },
+  { concept: "Mejoras funcionales", trad: "Cobro por hora", sysde: "ILIMITADAS", tradBad: true },
+  { concept: "Soporte", trad: "Contrato separado", sysde: "ILIMITADO", tradBad: true },
+  { concept: "Capacitación", trad: "Cobro adicional", sysde: "ILIMITADA", tradBad: true },
   { concept: "Infraestructura", trad: "Inversión propia", sysde: "Azure incluido", tradBad: true },
   { concept: "Implementación", trad: "6–18 meses", sysde: "6 meses", tradBad: true },
 ];
