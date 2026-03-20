@@ -1,6 +1,6 @@
 import ProposalNav from "@/components/proposal/ProposalNav";
 import ProposalHero from "@/components/proposal/ProposalHero";
-import ExecutiveLetter from "@/components/proposal/ExecutiveLetter";
+
 import SolutionOverview from "@/components/proposal/SolutionOverview";
 import ModulesSection from "@/components/proposal/ModulesSection";
 import BenefitsAndInfra from "@/components/proposal/BenefitsAndInfra";
@@ -14,9 +14,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <ProposalNav />
       <ProposalHero />
-      <div id="presentacion">
-        <ExecutiveLetter />
-      </div>
       <div id="solucion">
         <SolutionOverview />
       </div>
