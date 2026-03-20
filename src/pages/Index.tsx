@@ -15,8 +15,6 @@ const Index = () => {
       <ProposalNav />
       <ProposalHero />
       <div id="presentacion">
-        <ExecutiveLetter />
-      </div>
       <div id="solucion">
         <SolutionOverview />
       </div>
