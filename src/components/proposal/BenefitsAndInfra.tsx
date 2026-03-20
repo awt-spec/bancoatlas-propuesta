@@ -26,10 +26,10 @@ const comparison = [
 ];
 
 const infra = [
-  { icon: Server, title: "Servidor de Aplicaciones", specs: ["4 cores · 16 GB RAM", "128 GB SSD", "Windows Server 2019"] },
-  { icon: Database, title: "Base de Datos", specs: ["SQL SaaS — 4 núcleos", "16 GB RAM · 500 GB", "MS SQL 2019"] },
-  { icon: HardDrive, title: "Servidor Web", specs: ["4 cores · 16 GB RAM", "128 GB SSD", "Linux"] },
-  { icon: Wifi, title: "Servicios de Red", specs: ["Respaldo diario", "Retención 15 días", "Sitio de Contingencia"] },
+  { icon: Server, title: "Servidor de Aplicaciones", specs: ["4 cores · 16 GB RAM", "128 GB SSD", "Windows Server 2019"], color: "from-sysde-red/20 to-sysde-red/5" },
+  { icon: Database, title: "Base de Datos", specs: ["SQL SaaS — 4 núcleos", "16 GB RAM · 500 GB", "MS SQL 2019"], color: "from-sysde-red/15 to-transparent" },
+  { icon: HardDrive, title: "Servidor Web", specs: ["4 cores · 16 GB RAM", "128 GB SSD", "Linux"], color: "from-sysde-red/20 to-sysde-red/5" },
+  { icon: Wifi, title: "Servicios de Red", specs: ["Respaldo diario", "Retención 15 días", "Sitio de Contingencia"], color: "from-sysde-red/15 to-transparent" },
 ];
 
 const timeline = [
@@ -49,7 +49,7 @@ const BenefitsAndInfra = () => {
       <section className="py-24 md:py-32 bg-background">
         <div className="container px-6 max-w-5xl">
 
-          {/* Infrastructure — Interactive cards */}
+          {/* Infrastructure — Premium interactive cards */}
           <motion.div
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -58,57 +58,112 @@ const BenefitsAndInfra = () => {
             className="mb-20"
           >
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3 text-center">Infraestructura</p>
-            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-8 text-center tracking-tight">ON-CLOUD · Microsoft Azure</h3>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {infra.map((s, i) => (
-                <motion.div
-                  key={s.title}
-                  initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease }}
-                  onClick={() => setExpandedInfra(expandedInfra === i ? null : i)}
-                  className="p-6 rounded-2xl bg-card border border-border cursor-pointer group hover:border-sysde-red/30 transition-colors duration-300"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-sysde-red/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <s.icon className="h-5 w-5 text-sysde-red" />
-                      </div>
-                      <h4 className="font-semibold text-foreground text-sm">{s.title}</h4>
-                    </div>
-                    <motion.div animate={{ rotate: expandedInfra === i ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                      <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                    </motion.div>
-                  </div>
-                  <AnimatePresence>
-                    {expandedInfra === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pt-3 border-t border-border space-y-2">
-                          {s.specs.map((sp, si) => (
-                            <motion.div
-                              key={sp}
-                              initial={{ opacity: 0, x: -8 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: si * 0.05, duration: 0.3 }}
-                              className="flex items-center gap-2 text-sm text-muted-foreground"
-                            >
-                              <span className="w-1.5 h-1.5 rounded-full bg-sysde-red/40 flex-shrink-0" />
-                              {sp}
-                            </motion.div>
-                          ))}
+            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-3 text-center tracking-tight">ON-CLOUD · Microsoft Azure</h3>
+            <p className="text-sm text-muted-foreground text-center mb-10 max-w-md mx-auto">Haz clic en cada componente para ver las especificaciones técnicas</p>
+            
+            <div className="grid sm:grid-cols-2 gap-5">
+              {infra.map((s, i) => {
+                const isOpen = expandedInfra === i;
+                return (
+                  <motion.div
+                    key={s.title}
+                    initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.1, ease }}
+                    whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setExpandedInfra(isOpen ? null : i)}
+                    className={`relative p-7 rounded-2xl cursor-pointer group overflow-hidden transition-all duration-500 ${
+                      isOpen
+                        ? "bg-sysde-red text-white shadow-2xl shadow-sysde-red/20 border-2 border-sysde-red"
+                        : "bg-card border-2 border-border hover:border-sysde-red/40 hover:shadow-xl hover:shadow-sysde-red/10"
+                    }`}
+                  >
+                    {/* Gradient overlay */}
+                    <motion.div
+                      className={`absolute inset-0 bg-gradient-to-br ${s.color} pointer-events-none`}
+                      animate={{ opacity: isOpen ? 0 : 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-4">
+                          <motion.div
+                            animate={{ 
+                              scale: isOpen ? 1.1 : 1,
+                              rotate: isOpen ? 10 : 0,
+                            }}
+                            transition={{ duration: 0.4, ease }}
+                            className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-500 ${
+                              isOpen ? "bg-white/20" : "bg-sysde-red/10"
+                            }`}
+                          >
+                            <s.icon className={`h-6 w-6 transition-colors duration-500 ${isOpen ? "text-white" : "text-sysde-red"}`} />
+                          </motion.div>
+                          <div>
+                            <h4 className={`font-bold text-base transition-colors duration-500 ${isOpen ? "text-white" : "text-foreground"}`}>{s.title}</h4>
+                            <p className={`text-xs transition-colors duration-500 ${isOpen ? "text-white/60" : "text-muted-foreground"}`}>
+                              {s.specs[0]}
+                            </p>
+                          </div>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
+                        <motion.div 
+                          animate={{ rotate: isOpen ? 180 : 0 }}
+                          transition={{ duration: 0.4, ease }}
+                          className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-500 ${
+                            isOpen ? "bg-white/20" : "bg-muted"
+                          }`}
+                        >
+                          <ChevronDown className={`h-4 w-4 transition-colors duration-500 ${isOpen ? "text-white" : "text-muted-foreground"}`} />
+                        </motion.div>
+                      </div>
+
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pt-4 mt-2 border-t border-white/20 space-y-3">
+                              {s.specs.map((sp, si) => (
+                                <motion.div
+                                  key={sp}
+                                  initial={{ opacity: 0, x: -16, filter: "blur(4px)" }}
+                                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                                  transition={{ delay: si * 0.08, duration: 0.4, ease }}
+                                  className="flex items-center gap-3"
+                                >
+                                  <motion.span
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ delay: si * 0.08 + 0.1, duration: 0.3, ease }}
+                                    className="w-2 h-2 rounded-full bg-white/60 flex-shrink-0"
+                                  />
+                                  <span className="text-sm text-white/90 font-medium">{sp}</span>
+                                </motion.div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                    {/* Animated corner accent */}
+                    <motion.div
+                      className={`absolute -bottom-1 -right-1 w-20 h-20 rounded-tl-[2rem] transition-colors duration-500 ${
+                        isOpen ? "bg-white/10" : "bg-sysde-red/[0.03]"
+                      }`}
+                      animate={{ scale: isOpen ? 1.5 : 1 }}
+                      transition={{ duration: 0.5, ease }}
+                    />
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
 
