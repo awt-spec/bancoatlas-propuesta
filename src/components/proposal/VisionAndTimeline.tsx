@@ -22,7 +22,7 @@ const cards = [
 ];
 
 const VisionAndTimeline = () => (
-  <section className="py-24 md:py-32 bg-foreground text-white overflow-hidden" style={{ background: "hsl(0 0% 12%)" }}>
+  <section className="py-24 md:py-32 bg-sysde-red text-white overflow-hidden">
     <div className="container px-6 max-w-5xl">
       <motion.div
         initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
@@ -48,8 +48,8 @@ const VisionAndTimeline = () => (
             whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
             className="text-center p-8 rounded-2xl bg-white/[0.05] border border-white/10 cursor-default group"
           >
-            <div className="w-14 h-14 rounded-2xl bg-sysde-red/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
-              <v.icon className="h-6 w-6 text-sysde-red" />
+            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+              <v.icon className="h-6 w-6 text-white/80" />
             </div>
             <h3 className="text-lg font-semibold mb-2">{v.title}</h3>
             <p className="text-sm text-white/55 leading-relaxed">{v.desc}</p>
