@@ -57,11 +57,11 @@ const SolutionOverview = () => {
                   animate={{ rotate: expanded === i ? 90 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ChevronRight className="h-4 w-4 text-white/40" />
+                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
                 </motion.div>
               </div>
-              <h3 className="text-base font-semibold mb-1 text-white">{item.title}</h3>
-              <p className="text-sm text-white/55 leading-relaxed">{item.desc}</p>
+              <h3 className="text-base font-semibold mb-1 text-foreground">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               <AnimatePresence>
                 {expanded === i && (
                   <motion.ul
