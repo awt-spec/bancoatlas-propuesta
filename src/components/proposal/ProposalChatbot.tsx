@@ -94,7 +94,7 @@ const ProposalChatbot = () => {
             {/* Header */}
             <div
               className="flex items-center justify-between px-4 py-3 text-white"
-              style={{ background: "linear-gradient(135deg, hsl(355 72% 38%), hsl(207 60% 42%))" }}
+              style={{ background: "linear-gradient(135deg, hsl(355 72% 38%), hsl(355 72% 48%))" }}
             >
               <div className="flex items-center gap-2">
                 <Bot className="w-5 h-5" />
