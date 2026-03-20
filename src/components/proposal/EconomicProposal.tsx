@@ -80,11 +80,11 @@ const EconomicProposal = () => (
             transition={{ duration: 0.6, delay: i * 0.12, ease }}
             whileHover={{ y: -6, boxShadow: "0 24px 48px -12px rgba(0,0,0,0.12)", transition: { duration: 0.25 } }}
             className={`p-7 rounded-2xl border-2 ${p.borderColor} relative overflow-hidden cursor-default group ${
-              p.highlight ? "bg-sysde-blue/[0.04]" : "bg-card"
+              p.highlight ? "bg-sysde-red/[0.04]" : "bg-card"
             }`}
           >
             {p.highlight && (
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-sysde-blue" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-sysde" />
             )}
             <p className="text-xs font-bold uppercase tracking-widest text-sysde-red mb-1">{p.phase}</p>
             <p className="text-xs text-muted-foreground mb-5">{p.period}</p>
