@@ -120,7 +120,7 @@ const ProposalChatbot = () => {
                   <div
                     className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
                       msg.role === "user"
-                        ? "bg-sysde-blue text-white rounded-br-md"
+                        ? "bg-sysde-red text-white rounded-br-md"
                         : "bg-muted text-foreground rounded-bl-md"
                     }`}
                   >
