@@ -46,46 +46,8 @@ const BenefitsAndInfra = () => {
 
   return (
     <>
-      {/* Benefits */}
       <section className="py-24 md:py-32 bg-background">
         <div className="container px-6 max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, ease }}
-            className="text-center mb-14"
-          >
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3">Modelo de Servicio</p>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-5" style={{ textWrap: "balance" as const }}>
-              Servicio Ilimitado SYSDE
-            </h2>
-            <p className="text-base text-muted-foreground max-w-xl mx-auto">
-              Todo incluido, sin sorpresas.
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
-            {benefits.map((b, i) => (
-              <motion.div
-                key={b.title}
-                initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease }}
-                whileHover={{ y: -4, transition: { duration: 0.25 } }}
-                className="flex gap-4 p-6 rounded-2xl border border-border bg-card cursor-default group"
-              >
-                <div className="w-10 h-10 rounded-xl bg-sysde-red/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <b.icon className="h-5 w-5 text-sysde-red" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1 text-sm">{b.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
 
           {/* Infrastructure — Interactive cards */}
           <motion.div
@@ -150,7 +112,46 @@ const BenefitsAndInfra = () => {
             </div>
           </motion.div>
 
-          {/* Comparison — Interactive hover cards */}
+          {/* Socio Estratégico — Benefits */}
+          <motion.div
+            initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease }}
+            className="text-center mb-14"
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3">Modelo de Servicio</p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-5" style={{ textWrap: "balance" as const }}>
+              Servicio Ilimitado SYSDE
+            </h2>
+            <p className="text-base text-muted-foreground max-w-xl mx-auto">
+              Todo incluido, sin sorpresas.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
+            {benefits.map((b, i) => (
+              <motion.div
+                key={b.title}
+                initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease }}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                className="flex gap-4 p-6 rounded-2xl border border-border bg-card cursor-default group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-sysde-red/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <b.icon className="h-5 w-5 text-sysde-red" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1 text-sm">{b.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Comparison */}
           <motion.div
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -161,7 +162,6 @@ const BenefitsAndInfra = () => {
             <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-center tracking-tight">¿Por qué SYSDE SAF+?</h3>
             <p className="text-sm text-muted-foreground text-center mb-10 max-w-md mx-auto">Pasa el cursor sobre cada fila para ver la diferencia</p>
             
-            {/* Header */}
             <div className="grid grid-cols-[1.2fr_1fr_1fr] items-center gap-0 mb-2 px-5">
               <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Concepto</span>
               <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground text-center">Tradicional</span>
