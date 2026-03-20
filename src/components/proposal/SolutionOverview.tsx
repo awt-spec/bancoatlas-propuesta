@@ -13,7 +13,7 @@ const items = [
 ];
 
 const SolutionOverview = () => (
-  <section className="py-24 md:py-32 bg-sysde-dark text-white">
+  <section className="py-24 md:py-32 bg-sysde-red text-white">
     <div className="container px-6 max-w-5xl">
       <motion.div
         initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
