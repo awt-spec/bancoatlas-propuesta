@@ -69,7 +69,7 @@ const SolutionOverview = () => {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease }}
-                    className="overflow-hidden mt-4 pt-4 border-t border-white/15 space-y-2"
+                    className="overflow-hidden mt-4 pt-4 border-t border-border space-y-2"
                   >
                     {item.details.map((d, di) => (
                       <motion.li
