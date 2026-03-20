@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Cpu, Cloud, Layers, Zap } from "lucide-react";
+import { Layers, Globe, Cpu, Database, Users, Zap } from "lucide-react";
 
 const fade = {
   initial: { opacity: 0, y: 20 },
@@ -17,25 +17,26 @@ const SolutionOverview = () => (
           ¿Qué es SYSDE SAF+?
         </h3>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          Una herramienta financiera de alta tecnología que automatiza e integra de forma eficiente
-          los procesos y operaciones de los intermediarios financieros, permitiendo convivir con
-          los diferentes ecosistemas con los que interactúa la institución.
+          La herramienta financiera de alta tecnología que automatiza e integra de forma eficiente
+          los procesos y operaciones de los intermediarios financieros.
         </p>
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 gap-6 mb-16">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {[
-          { icon: Cloud, title: "Modelo ON-CLOUD", desc: "Despliegue ágil y flexible en la nube, minimizando infraestructura interna y facilitando la gestión diaria." },
-          { icon: Layers, title: "Modular e Integrado", desc: "Sistema flexible que permite realizar ajustes según las demandas del mercado de manera oportuna y eficiente." },
-          { icon: Cpu, title: "Multi Empresa / Sucursal", desc: "Soporte para múltiples empresas, sucursales, monedas y créditos con contabilización 100% en línea." },
-          { icon: Zap, title: "Reglas de Negocio", desc: "Configuración electrónica de procesos operativos para simplificar operación y mejorar servicio al cliente." },
+          { icon: Layers, title: "Flexible y Adaptable", desc: "Sistema modular que se adapta a las necesidades del negocio y permite escalar conforme crece la operación." },
+          { icon: Globe, title: "Canales Digitales Integrados", desc: "Integración nativa con canales digitales para una experiencia omnicanal completa." },
+          { icon: Cpu, title: "APIs y Conectividad", desc: "Core colaborativo de APIs para conectar con sistemas existentes y servicios de terceros." },
+          { icon: Zap, title: "Tecnología de Última Generación", desc: "Arquitectura moderna con las mejores prácticas del mercado financiero." },
+          { icon: Database, title: "Gestión de Datos Centralizada", desc: "Consolidación de información en una plataforma única para análisis y toma de decisiones." },
+          { icon: Users, title: "Orientado al Cliente", desc: "Visión 360° del cliente para optimizar la relación y mejorar el servicio." },
         ].map((item, i) => (
           <motion.div
             key={item.title}
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
             className="p-7 rounded-2xl border border-border bg-card hover:shadow-lg transition-shadow"
           >
             <div className="w-10 h-10 rounded-xl bg-sysde-blue/10 flex items-center justify-center mb-4">
@@ -46,42 +47,6 @@ const SolutionOverview = () => (
           </motion.div>
         ))}
       </div>
-
-      {/* Características tabla */}
-      <motion.div {...fade}>
-        <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Características de SYSDE SAF+</h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-xl bg-card border border-border">
-            <h4 className="font-semibold text-sysde-red mb-3 text-sm uppercase tracking-wider">Funcionales</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Cliente Único</li>
-              <li>• Multi Empresa</li>
-              <li>• Multi Sucursal</li>
-              <li>• Multi Crédito</li>
-              <li>• Contabilización 100% en Línea</li>
-              <li>• Configuración de Reglas de Negocio</li>
-            </ul>
-          </div>
-          <div className="p-6 rounded-xl bg-card border border-border">
-            <h4 className="font-semibold text-sysde-red mb-3 text-sm uppercase tracking-wider">Generales</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Modular e Integrado</li>
-              <li>• Documentación Técnica y Funcional</li>
-              <li>• Manejo de altos volúmenes de datos</li>
-              <li>• Interfaz intuitiva y amigable</li>
-            </ul>
-          </div>
-          <div className="p-6 rounded-xl bg-card border border-border">
-            <h4 className="font-semibold text-sysde-red mb-3 text-sm uppercase tracking-wider">Técnicas</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Seguridad integrada</li>
-              <li>• Trabajo descentralizado</li>
-              <li>• Explotación para reportes y análisis</li>
-              <li>• Reportes regulatorios</li>
-            </ul>
-          </div>
-        </div>
-      </motion.div>
     </div>
   </section>
 );

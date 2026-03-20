@@ -9,13 +9,22 @@ const ProposalFooter = () => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="flex flex-col md:flex-row items-center justify-between gap-6"
+        className="text-center mb-8"
+      >
+        <h3 className="text-2xl font-bold text-primary-foreground mb-2">Gracias por su confianza</h3>
+        <p className="text-sm opacity-60">Estamos listos para ser su socio tecnológico estratégico</p>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-primary-foreground/10"
       >
         <div className="flex items-center gap-3">
           <img src={sysdeLogoSrc} alt="SYSDE" className="h-8 brightness-0 invert" />
           <div>
-            <p className="font-semibold text-primary-foreground">SYSDE Inc.</p>
-            <p className="text-xs opacity-60">Propuesta comercial para Factoraje Pentágono</p>
+            <p className="font-semibold text-primary-foreground">Eduardo Wheelock</p>
+            <p className="text-xs opacity-60">Presidente, Sysde Inc.</p>
           </div>
         </div>
         <div className="flex items-center gap-6 text-sm">

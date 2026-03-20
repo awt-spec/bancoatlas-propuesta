@@ -1,15 +1,10 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, AlertCircle, CreditCard, Infinity } from "lucide-react";
+import { CheckCircle2, AlertCircle, FileCheck } from "lucide-react";
 
-const pricingTiers = [
-  { contracts: "0 - 300", price: "$3,999.00" },
-  { contracts: "301 - 400", price: "$4,399.00" },
-  { contracts: "401 - 500", price: "$4,699.00" },
-  { contracts: "501 - 600", price: "$4,999.00" },
-  { contracts: "601 - 700", price: "$5,399.00" },
-  { contracts: "701 - 800", price: "$5,699.00" },
-  { contracts: "801 - 1000", price: "$5,999.00" },
-  { contracts: "+1001", price: "Por determinar" },
+const phases = [
+  { phase: "FASE 1: ARRANQUE", period: "Meses 1 - 18", price: "USD $9,999", color: "border-sysde-blue", bg: "bg-sysde-blue/5", features: ["Implementación completa", "Todos los módulos", "Usuarios ilimitados", "Soporte incluido"] },
+  { phase: "FASE 2: CRECIMIENTO", period: "Meses 19 - 36", price: "USD $14,999", color: "border-sysde-red", bg: "bg-sysde-red/5", features: ["Estabilización operativa", "Evolución funcional", "Reportes regulatorios BCP", "Canales digitales"] },
+  { phase: "FASE 3: CONSOLIDACIÓN", period: "Mes 37 en adelante", price: "USD $18,999", color: "border-foreground/20", bg: "bg-muted/30", features: ["Plataforma madura", "Mejora continua", "Nuevos módulos disponibles", "Escalamiento pleno"] },
 ];
 
 const EconomicProposal = () => (
@@ -24,15 +19,41 @@ const EconomicProposal = () => (
       >
         <h2 className="text-sm font-semibold uppercase tracking-wider text-sysde-red mb-2">Inversión</h2>
         <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-          ON-CLOUD: Inversión Financiera
+          Modelo de Inversión Escalonado
         </h3>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          Proveemos un modelo de Software as a Service (SaaS) que permite a Factoraje Pentágono utilizar nuestra plataforma SYSDE SAF+. 
-          Nuestra plataforma brinda soporte técnico extensivo para la gestión de administración, colocación y operaciones de tesorería.
+          Diseñado para crecer con Banco Atlas. Modelo SaaS con todo incluido y sin sorpresas.
         </p>
       </motion.div>
 
-      {/* Pricing Table */}
+      {/* Pricing Phases */}
+      <div className="grid md:grid-cols-3 gap-6 mb-16">
+        {phases.map((p, i) => (
+          <motion.div
+            key={p.phase}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+            className={`p-7 rounded-2xl border-2 ${p.color} ${p.bg} relative overflow-hidden`}
+          >
+            <p className="text-xs font-semibold uppercase tracking-wider text-sysde-red mb-1">{p.phase}</p>
+            <p className="text-xs text-muted-foreground mb-4">{p.period}</p>
+            <p className="text-3xl font-black text-foreground mb-1">{p.price}</p>
+            <p className="text-xs text-muted-foreground mb-6">/mes</p>
+            <ul className="space-y-2">
+              {p.features.map(f => (
+                <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <CheckCircle2 className="h-4 w-4 text-sysde-blue mt-0.5 flex-shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* What's included */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -40,34 +61,28 @@ const EconomicProposal = () => (
         transition={{ duration: 0.6 }}
         className="mb-12"
       >
-        <div className="overflow-hidden rounded-2xl border border-border bg-card">
-          {/* Table Header */}
-          <div className="grid grid-cols-2 bg-sysde-red text-white">
-            <div className="px-6 py-4 font-semibold text-center border-r border-sysde-red/30">
-              Contratos
-            </div>
-            <div className="px-6 py-4 font-semibold text-center">
-              Monto Mensual en USD
-            </div>
+        <div className="p-8 rounded-2xl border-2 border-sysde-blue/20 bg-card relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-sysde-blue" />
+          <h4 className="font-bold text-foreground text-xl mb-4 text-center">Todo incluido en cada fase</h4>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              "10 módulos core bancario completos",
+              "Usuarios y agencias ilimitados",
+              "Infraestructura Azure + contingencia",
+              "Soporte, capacitación y mejoras evolutivas",
+              "Reportes regulatorios BCP / SEPRELAD",
+              "Implementación en 6 meses",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <CheckCircle2 className="h-4 w-4 text-sysde-blue mt-0.5 flex-shrink-0" />
+                {item}
+              </div>
+            ))}
           </div>
-          {/* Table Body */}
-          {pricingTiers.map((tier, index) => (
-            <div
-              key={tier.contracts}
-              className={`grid grid-cols-2 ${index % 2 === 0 ? "bg-card" : "bg-muted/30"} ${index !== pricingTiers.length - 1 ? "border-b border-border" : ""}`}
-            >
-              <div className="px-6 py-4 text-center text-foreground font-medium border-r border-border">
-                {tier.contracts}
-              </div>
-              <div className="px-6 py-4 text-center text-foreground">
-                USD {tier.price}
-              </div>
-            </div>
-          ))}
         </div>
       </motion.div>
 
-      {/* Unlimited Service Card */}
+      {/* Terms */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -75,79 +90,31 @@ const EconomicProposal = () => (
         transition={{ duration: 0.6, delay: 0.1 }}
         className="mb-12"
       >
-        <div className="p-8 rounded-2xl border-2 border-sysde-blue/20 bg-card relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-sysde-blue" />
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-sysde-blue/10 flex items-center justify-center flex-shrink-0">
-              <Infinity className="h-6 w-6 text-sysde-blue" />
-            </div>
-            <div>
-              <h4 className="font-bold text-foreground text-xl mb-2">Servicio Ilimitado SYSDE</h4>
-              <p className="text-muted-foreground mb-4">
-                La renta mensual incluye todos los servicios de la plataforma sin restricciones:
-              </p>
-              <ul className="grid sm:grid-cols-2 gap-3">
-                {[
-                  "Licencia SYSDE SAF+ (todos los módulos)",
-                  "Licencias de aplicación ilimitadas",
-                  "Capacitación continua del equipo",
-                  "Asistencia correctiva permanente",
-                  "Mantenimiento y actualizaciones",
-                  "Soporte técnico incluido",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="h-4 w-4 text-sysde-blue mt-0.5 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Payment Method */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mb-12"
-      >
         <h4 className="font-bold text-foreground text-xl mb-4 flex items-center gap-2">
-          <CreditCard className="h-5 w-5 text-sysde-red" />
-          Método de Pago
+          <FileCheck className="h-5 w-5 text-sysde-red" />
+          Términos y Condiciones
         </h4>
-        <p className="text-muted-foreground mb-4">
-          El método de pago para la suscripción mensual será el siguiente:
-        </p>
-        <div className="overflow-hidden rounded-xl border border-border bg-card">
-          <div className="grid grid-cols-2 bg-sysde-red text-white">
-            <div className="px-6 py-3 font-semibold border-r border-sysde-red/30">Hito</div>
-            <div className="px-6 py-3 font-semibold text-center">Periodicidad</div>
-          </div>
-          <div className="p-6 border-b border-border">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="font-medium text-foreground mb-1">Suscripción</p>
-                <p className="text-sm text-muted-foreground">
-                  El pago se realiza mensualmente por adelantado, el primer día hábil de cada mes.
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  El pago mensual inicial se requiere al momento de la firma del contrato.
-                </p>
-              </div>
-              <div className="flex items-center justify-center">
-                <span className="px-4 py-2 rounded-full bg-sysde-red/10 text-sysde-red font-medium text-sm">
-                  Mensual
-                </span>
-              </div>
+        <div className="space-y-3">
+          {[
+            "Los precios están expresados en USD. No incluyen IVA. Facturación local en Paraguay.",
+            "El modelo de suscripción ON-CLOUD requiere un contrato mínimo de cinco (5) años.",
+            "Incluye instalación del Core en servidor de contingencia para disponibilidad y continuidad operativa.",
+            "Modificaciones funcionales se desarrollarán sin costo adicional bajo plan de mejoras de mutuo acuerdo.",
+            "Soporte operativo, mantenimiento evolutivo, soporte correctivo y capacitación progresiva incluidos.",
+            "SYSDE realizará sin costo adicional cualquier actualización de reportes regulatorios requeridos.",
+            "Usuarios ilimitados, agencias ilimitadas y ajustes regulatorios ilimitados durante toda la vigencia.",
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+              <span className="w-5 h-5 rounded-full bg-sysde-red/10 text-sysde-red flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">
+                {i + 1}
+              </span>
+              {item}
             </div>
-          </div>
+          ))}
         </div>
       </motion.div>
 
-      {/* Exclusions */}
+      {/* Confidentiality */}
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -155,23 +122,13 @@ const EconomicProposal = () => (
         transition={{ duration: 0.6 }}
         className="p-6 rounded-xl bg-muted/60 border border-border"
       >
-        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+        <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
           <AlertCircle className="h-4 w-4 text-sysde-red" />
-          No incluido en la propuesta
+          Confidencialidad
         </h4>
-        <div className="grid sm:grid-cols-2 gap-2">
-          {[
-            "Desarrollo de interfaces personalizadas",
-            "Desarrollo de requerimientos adicionales",
-            "Migraciones de datos de sistemas previos",
-            "Integraciones con sistemas de terceros",
-          ].map((item) => (
-            <p key={item} className="text-sm text-muted-foreground flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/40 flex-shrink-0" />
-              {item}
-            </p>
-          ))}
-        </div>
+        <p className="text-sm text-muted-foreground">
+          La información contenida en esta propuesta es confidencial y propiedad de SYSDE.
+        </p>
       </motion.div>
     </div>
   </section>
