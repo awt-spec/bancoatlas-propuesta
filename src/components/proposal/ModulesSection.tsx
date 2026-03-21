@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Users, Landmark, Banknote, CreditCard, BookOpen, Building, PiggyBank, Box, FileText, Globe, Smartphone, FolderOpen, GitBranch } from "lucide-react";
+import { Shield, Users, Landmark, Banknote, CreditCard, BookOpen, Building, PiggyBank, Box, FileText, Globe, Smartphone, FolderOpen, GitBranch, Receipt } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -18,6 +18,7 @@ const modules = [
   { icon: Smartphone, title: "Banca Móvil", accent: true },
   { icon: FolderOpen, title: "Expediente Digital", accent: false },
   { icon: GitBranch, title: "Originación", accent: true },
+  { icon: Receipt, title: "Cobranza", accent: false },
 ];
 
 const regulatoryItems = [
