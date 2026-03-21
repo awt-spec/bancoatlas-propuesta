@@ -34,7 +34,6 @@ const timeline = [
 ];
 
 const BenefitsAndInfra = () => {
-  const [expandedInfra, setExpandedInfra] = useState<number | null>(null);
 
   return (
     <>
