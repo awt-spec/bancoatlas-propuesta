@@ -18,6 +18,7 @@ const modules = [
   { icon: Smartphone, title: "Banca Móvil", accent: true },
   { icon: FolderOpen, title: "Expediente Digital", accent: false },
   { icon: GitBranch, title: "Originación", accent: true },
+  { icon: Receipt, title: "Cobranza", accent: false },
 ];
 
 const regulatoryItems = [
