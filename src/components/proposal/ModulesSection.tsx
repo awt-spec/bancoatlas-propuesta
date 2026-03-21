@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Users, Landmark, Banknote, CreditCard, BookOpen, Building, PiggyBank, Box, FileText, Globe, Smartphone, FolderOpen, GitBranch } from "lucide-react";
+import { Shield, Users, Landmark, Banknote, CreditCard, BookOpen, Building, PiggyBank, Box, FileText, Globe, Smartphone, FolderOpen, GitBranch, Receipt } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
