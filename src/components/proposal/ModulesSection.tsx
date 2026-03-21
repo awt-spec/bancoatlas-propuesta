@@ -14,6 +14,8 @@ const modules = [
   { icon: PiggyBank, title: "Depósitos a Plazo", accent: true },
   { icon: Box, title: "Activos Fijos", accent: false },
   { icon: FileText, title: "Reportes Regulatorios", accent: true },
+  { icon: Globe, title: "Banca por Internet", accent: false },
+  { icon: Smartphone, title: "Banca Móvil", accent: true },
 ];
 
 const regulatoryItems = [
