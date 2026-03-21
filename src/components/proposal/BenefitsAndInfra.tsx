@@ -20,7 +20,6 @@ const comparison = [
   { concept: "Mejoras funcionales", trad: "Cobro por hora", sysde: "ILIMITADAS", tradBad: true },
   { concept: "Soporte", trad: "Contrato separado", sysde: "ILIMITADO", tradBad: true },
   { concept: "Capacitación", trad: "Cobro adicional", sysde: "ILIMITADA", tradBad: true },
-  { concept: "Infraestructura", trad: "Inversión propia", sysde: "A cargo del banco", tradBad: false },
   { concept: "Implementación", trad: "6–18 meses", sysde: "6 meses", tradBad: true },
 ];
 
