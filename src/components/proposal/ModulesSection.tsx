@@ -103,7 +103,7 @@ const ModulesSection = () => (
             ))}
           </div>
           <p className="text-xs text-sysde-red font-semibold text-center mt-6">
-            ✓ Cualquier nuevo reporte o modificación regulatoria se desarrolla sin costo adicional
+            ✓ Cualquier nuevo reporte o modificación regulatoria se implementa sin costo adicional
           </p>
         </div>
       </motion.div>
