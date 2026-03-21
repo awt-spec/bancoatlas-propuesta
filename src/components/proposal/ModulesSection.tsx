@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Users, Landmark, Banknote, CreditCard, BookOpen, Building, PiggyBank, Box, FileText } from "lucide-react";
+import { Shield, Users, Landmark, Banknote, CreditCard, BookOpen, Building, PiggyBank, Box, FileText, Globe, Smartphone } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -14,6 +14,8 @@ const modules = [
   { icon: PiggyBank, title: "Depósitos a Plazo", accent: true },
   { icon: Box, title: "Activos Fijos", accent: false },
   { icon: FileText, title: "Reportes Regulatorios", accent: true },
+  { icon: Globe, title: "Banca por Internet", accent: false },
+  { icon: Smartphone, title: "Banca Móvil", accent: true },
 ];
 
 const regulatoryItems = [
@@ -35,7 +37,7 @@ const ModulesSection = () => (
       >
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3">Alcance</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-5" style={{ textWrap: "balance" }}>
-          10 módulos core bancarios
+          Core Bancario Completo
         </h2>
         <p className="text-base text-muted-foreground max-w-2xl mx-auto">
           Cobertura completa para la operación integral de Banco Atlas.
@@ -99,7 +101,7 @@ const ModulesSection = () => (
             ))}
           </div>
           <p className="text-xs text-sysde-red font-semibold text-center mt-6">
-            ✓ Cualquier nuevo reporte o modificación regulatoria se implementa sin costo adicional
+            ✓ Cualquier nuevo reporte o modificación regulatoria se desarrolla sin costo adicional
           </p>
         </div>
       </motion.div>
