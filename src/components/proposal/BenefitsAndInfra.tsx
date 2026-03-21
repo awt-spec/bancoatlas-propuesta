@@ -58,7 +58,7 @@ const BenefitsAndInfra = () => {
             className="mb-20"
           >
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3 text-center">Infraestructura</p>
-            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-3 text-center tracking-tight">ON-CLOUD · Microsoft Azure</h3>
+            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-3 text-center tracking-tight">On-Premise o PaaS</h3>
             <p className="text-sm text-muted-foreground text-center mb-10 max-w-md mx-auto">Haz clic en cada componente para ver las especificaciones técnicas</p>
             
             <div className="grid sm:grid-cols-2 gap-5">
