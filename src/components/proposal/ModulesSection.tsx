@@ -37,7 +37,7 @@ const ModulesSection = () => (
       >
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3">Alcance</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-5" style={{ textWrap: "balance" }}>
-          10 módulos core bancarios
+          Core Bancario Completo
         </h2>
         <p className="text-base text-muted-foreground max-w-2xl mx-auto">
           Cobertura completa para la operación integral de Banco Atlas.
