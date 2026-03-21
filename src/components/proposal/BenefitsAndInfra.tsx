@@ -10,7 +10,7 @@ const benefits = [
   { icon: Wrench, title: "Cambios y Mejoras", desc: "Ajustes funcionales y nuevos productos crediticios sin costo extra." },
   { icon: FileText, title: "Reportes Regulatorios", desc: "Actualizaciones BCP, SEPRELAD o cualquier ente regulador incluidas." },
   { icon: HeadphonesIcon, title: "Soporte y Capacitación", desc: "Soporte correctivo, evolutivo y capacitación permanente sin límites." },
-  { icon: Cloud, title: "Infraestructura Cloud", desc: "Microsoft Azure, respaldos diarios y sitio de contingencia incluidos." },
+  { icon: Cloud, title: "Infraestructura", desc: "A cargo de Banco Atlas — On-Premise o PaaS según su preferencia." },
 ];
 
 const comparison = [
