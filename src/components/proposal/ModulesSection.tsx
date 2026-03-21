@@ -85,7 +85,7 @@ const ModulesSection = () => (
             Reportes Regulatorios — Paraguay
           </h3>
           <p className="text-sm text-muted-foreground text-center mb-8 max-w-xl mx-auto">
-            Desarrollo y mantenimiento de todos los reportes regulatorios sin costo adicional.
+            Implementación y mantenimiento de todos los reportes regulatorios sin costo adicional.
           </p>
           <div className="grid sm:grid-cols-2 gap-5">
             {regulatoryItems.map((item, i) => (
