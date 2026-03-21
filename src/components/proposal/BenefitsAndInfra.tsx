@@ -23,12 +23,6 @@ const comparison = [
   { concept: "Implementación", trad: "6–18 meses", sysde: "6 meses", tradBad: true },
 ];
 
-const infra = [
-  { icon: Server, title: "Servidor de Aplicaciones", specs: ["4 cores · 16 GB RAM", "128 GB SSD", "Windows Server 2019"], color: "from-sysde-red/20 to-sysde-red/5" },
-  { icon: Database, title: "Base de Datos", specs: ["SQL SaaS — 4 núcleos", "16 GB RAM · 500 GB", "MS SQL 2019"], color: "from-sysde-red/15 to-transparent" },
-  { icon: HardDrive, title: "Servidor Web", specs: ["4 cores · 16 GB RAM", "128 GB SSD", "Linux"], color: "from-sysde-red/20 to-sysde-red/5" },
-  { icon: Wifi, title: "Servicios de Red", specs: ["Respaldo diario", "Retención 15 días", "Sitio de Contingencia"], color: "from-sysde-red/15 to-transparent" },
-];
 
 const timeline = [
   { stage: "0", task: "Gestión del Proyecto", months: [1,1,1,1,1,1] },
