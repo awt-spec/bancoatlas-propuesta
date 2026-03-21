@@ -10,7 +10,7 @@ const benefits = [
   { icon: Wrench, title: "Cambios y Mejoras", desc: "Ajustes funcionales y nuevos productos crediticios sin costo extra." },
   { icon: FileText, title: "Reportes Regulatorios", desc: "Actualizaciones BCP, SEPRELAD o cualquier ente regulador incluidas." },
   { icon: HeadphonesIcon, title: "Soporte y Capacitación", desc: "Soporte correctivo, evolutivo y capacitación permanente sin límites." },
-  { icon: Cloud, title: "Infraestructura Cloud", desc: "Microsoft Azure, respaldos diarios y sitio de contingencia incluidos." },
+  { icon: Cloud, title: "Infraestructura", desc: "A cargo de Banco Atlas — On-Premise o PaaS según su preferencia." },
 ];
 
 const comparison = [
@@ -21,7 +21,7 @@ const comparison = [
   { concept: "Mejoras funcionales", trad: "Cobro por hora", sysde: "ILIMITADAS", tradBad: true },
   { concept: "Soporte", trad: "Contrato separado", sysde: "ILIMITADO", tradBad: true },
   { concept: "Capacitación", trad: "Cobro adicional", sysde: "ILIMITADA", tradBad: true },
-  { concept: "Infraestructura", trad: "Inversión propia", sysde: "Azure incluido", tradBad: true },
+  { concept: "Infraestructura", trad: "Inversión propia", sysde: "A cargo del banco", tradBad: false },
   { concept: "Implementación", trad: "6–18 meses", sysde: "6 meses", tradBad: true },
 ];
 
@@ -58,7 +58,7 @@ const BenefitsAndInfra = () => {
             className="mb-20"
           >
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3 text-center">Infraestructura</p>
-            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-3 text-center tracking-tight">ON-CLOUD · Microsoft Azure</h3>
+            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-3 text-center tracking-tight">On-Premise o PaaS</h3>
             <p className="text-sm text-muted-foreground text-center mb-10 max-w-md mx-auto">Haz clic en cada componente para ver las especificaciones técnicas</p>
             
             <div className="grid sm:grid-cols-2 gap-5">
@@ -348,7 +348,7 @@ const BenefitsAndInfra = () => {
               transition={{ delay: 0.8, duration: 0.5 }}
               className="text-xs text-center mt-6 text-white/50"
             >
-              Implementación en 6 meses — Modelo ON-CLOUD con Microsoft Azure
+              Implementación en 6 meses — Infraestructura a cargo de Banco Atlas (On-Premise o PaaS)
             </motion.p>
           </motion.div>
         </div>
