@@ -339,7 +339,7 @@ const BenefitsAndInfra = () => {
               transition={{ delay: 0.8, duration: 0.5 }}
               className="text-xs text-center mt-6 text-white/50"
             >
-              Implementación en 6 meses — Infraestructura a cargo de Banco Atlas (On-Premise o PaaS)
+              Implementación en 6 meses · Metodología SYSDE "Agile - Answers"
             </motion.p>
           </motion.div>
         </div>
