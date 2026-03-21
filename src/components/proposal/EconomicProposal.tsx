@@ -65,7 +65,7 @@ const EconomicProposal = () => (
           Modelo de Inversión Escalonado
         </h2>
         <p className="text-base text-muted-foreground max-w-2xl mx-auto" style={{ textWrap: "pretty" }}>
-          Diseñado para crecer con Banco Atlas. Modelo SaaS con todo incluido y sin sorpresas.
+          Diseñado para crecer con Banco Atlas. Modelo PaaS u On-Premise con todo incluido y sin sorpresas.
         </p>
       </motion.div>
 
