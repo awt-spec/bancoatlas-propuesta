@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, Building, Wrench, FileText, HeadphonesIcon, Cloud, Server, Database, HardDrive, Wifi, Check, X, ChevronDown } from "lucide-react";
+import { Users, Building, Wrench, FileText, HeadphonesIcon, Check, X, ChevronDown } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -10,7 +10,6 @@ const benefits = [
   { icon: Wrench, title: "Cambios y Mejoras", desc: "Ajustes funcionales y nuevos productos crediticios sin costo extra." },
   { icon: FileText, title: "Reportes Regulatorios", desc: "Actualizaciones BCP, SEPRELAD o cualquier ente regulador incluidas." },
   { icon: HeadphonesIcon, title: "Soporte y Capacitación", desc: "Soporte correctivo, evolutivo y capacitación permanente sin límites." },
-  { icon: Cloud, title: "Infraestructura", desc: "A cargo de Banco Atlas — On-Premise o PaaS según su preferencia." },
 ];
 
 const comparison = [
@@ -21,16 +20,9 @@ const comparison = [
   { concept: "Mejoras funcionales", trad: "Cobro por hora", sysde: "ILIMITADAS", tradBad: true },
   { concept: "Soporte", trad: "Contrato separado", sysde: "ILIMITADO", tradBad: true },
   { concept: "Capacitación", trad: "Cobro adicional", sysde: "ILIMITADA", tradBad: true },
-  { concept: "Infraestructura", trad: "Inversión propia", sysde: "A cargo del banco", tradBad: false },
   { concept: "Implementación", trad: "6–18 meses", sysde: "6 meses", tradBad: true },
 ];
 
-const infra = [
-  { icon: Server, title: "Servidor de Aplicaciones", specs: ["4 cores · 16 GB RAM", "128 GB SSD", "Windows Server 2019"], color: "from-sysde-red/20 to-sysde-red/5" },
-  { icon: Database, title: "Base de Datos", specs: ["SQL SaaS — 4 núcleos", "16 GB RAM · 500 GB", "MS SQL 2019"], color: "from-sysde-red/15 to-transparent" },
-  { icon: HardDrive, title: "Servidor Web", specs: ["4 cores · 16 GB RAM", "128 GB SSD", "Linux"], color: "from-sysde-red/20 to-sysde-red/5" },
-  { icon: Wifi, title: "Servicios de Red", specs: ["Respaldo diario", "Retención 15 días", "Sitio de Contingencia"], color: "from-sysde-red/15 to-transparent" },
-];
 
 const timeline = [
   { stage: "0", task: "Gestión del Proyecto", months: [1,1,1,1,1,1] },
@@ -42,130 +34,13 @@ const timeline = [
 ];
 
 const BenefitsAndInfra = () => {
-  const [expandedInfra, setExpandedInfra] = useState<number | null>(null);
 
   return (
     <>
       <section className="py-24 md:py-32 bg-background">
         <div className="container px-6 max-w-5xl">
 
-          {/* Infrastructure — Premium interactive cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, ease }}
-            className="mb-20"
-          >
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-sysde-red mb-3 text-center">Infraestructura</p>
-            <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-3 text-center tracking-tight">On-Premise o PaaS</h3>
-            <p className="text-sm text-muted-foreground text-center mb-10 max-w-md mx-auto">Haz clic en cada componente para ver las especificaciones técnicas</p>
-            
-            <div className="grid sm:grid-cols-2 gap-5">
-              {infra.map((s, i) => {
-                const isOpen = expandedInfra === i;
-                return (
-                  <motion.div
-                    key={s.title}
-                    initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
-                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: i * 0.1, ease }}
-                    whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setExpandedInfra(isOpen ? null : i)}
-                    className={`relative p-7 rounded-2xl cursor-pointer group overflow-hidden transition-all duration-500 ${
-                      isOpen
-                        ? "bg-sysde-red text-white shadow-2xl shadow-sysde-red/20 border-2 border-sysde-red"
-                        : "bg-card border-2 border-border hover:border-sysde-red/40 hover:shadow-xl hover:shadow-sysde-red/10"
-                    }`}
-                  >
-                    {/* Gradient overlay */}
-                    <motion.div
-                      className={`absolute inset-0 bg-gradient-to-br ${s.color} pointer-events-none`}
-                      animate={{ opacity: isOpen ? 0 : 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
 
-                    <div className="relative z-10">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-4">
-                          <motion.div
-                            animate={{ 
-                              scale: isOpen ? 1.1 : 1,
-                              rotate: isOpen ? 10 : 0,
-                            }}
-                            transition={{ duration: 0.4, ease }}
-                            className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-500 ${
-                              isOpen ? "bg-white/20" : "bg-sysde-red/10"
-                            }`}
-                          >
-                            <s.icon className={`h-6 w-6 transition-colors duration-500 ${isOpen ? "text-white" : "text-sysde-red"}`} />
-                          </motion.div>
-                          <div>
-                            <h4 className={`font-bold text-base transition-colors duration-500 ${isOpen ? "text-white" : "text-foreground"}`}>{s.title}</h4>
-                            <p className={`text-xs transition-colors duration-500 ${isOpen ? "text-white/60" : "text-muted-foreground"}`}>
-                              {s.specs[0]}
-                            </p>
-                          </div>
-                        </div>
-                        <motion.div 
-                          animate={{ rotate: isOpen ? 180 : 0 }}
-                          transition={{ duration: 0.4, ease }}
-                          className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-500 ${
-                            isOpen ? "bg-white/20" : "bg-muted"
-                          }`}
-                        >
-                          <ChevronDown className={`h-4 w-4 transition-colors duration-500 ${isOpen ? "text-white" : "text-muted-foreground"}`} />
-                        </motion.div>
-                      </div>
-
-                      <AnimatePresence>
-                        {isOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.4, ease }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pt-4 mt-2 border-t border-white/20 space-y-3">
-                              {s.specs.map((sp, si) => (
-                                <motion.div
-                                  key={sp}
-                                  initial={{ opacity: 0, x: -16, filter: "blur(4px)" }}
-                                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                                  transition={{ delay: si * 0.08, duration: 0.4, ease }}
-                                  className="flex items-center gap-3"
-                                >
-                                  <motion.span
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: si * 0.08 + 0.1, duration: 0.3, ease }}
-                                    className="w-2 h-2 rounded-full bg-white/60 flex-shrink-0"
-                                  />
-                                  <span className="text-sm text-white/90 font-medium">{sp}</span>
-                                </motion.div>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Animated corner accent */}
-                    <motion.div
-                      className={`absolute -bottom-1 -right-1 w-20 h-20 rounded-tl-[2rem] transition-colors duration-500 ${
-                        isOpen ? "bg-white/10" : "bg-sysde-red/[0.03]"
-                      }`}
-                      animate={{ scale: isOpen ? 1.5 : 1 }}
-                      transition={{ duration: 0.5, ease }}
-                    />
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
 
           {/* Socio Estratégico — Benefits */}
           <motion.div
@@ -348,7 +223,7 @@ const BenefitsAndInfra = () => {
               transition={{ delay: 0.8, duration: 0.5 }}
               className="text-xs text-center mt-6 text-white/50"
             >
-              Implementación en 6 meses — Infraestructura a cargo de Banco Atlas (On-Premise o PaaS)
+              Implementación en 6 meses · Metodología SYSDE "Agile - Answers"
             </motion.p>
           </motion.div>
         </div>
